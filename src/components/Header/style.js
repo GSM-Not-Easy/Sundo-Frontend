@@ -9,7 +9,7 @@ export const HeaderWrapper = styled.div`
 export const HeaderContainer = styled.div`
   display: flex;
   justify-content: center;
-  gap: 245px;
+  gap: 15.3125rem;
 `;
 
 export const LogoContainer = styled.div`
@@ -22,7 +22,7 @@ export const LogoContainer = styled.div`
 export const MenuContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 48px;
+  gap: 3rem;
 `;
 
 export const MenuTitle = styled.span`
@@ -34,16 +34,16 @@ export const MenuTitle = styled.span`
 export const SignMenuContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
 `;
 export const SignInButton = styled.button`
   background-color: white;
   color: #6142f8;
   font-weight: 600;
-  border-radius: 72px;
+  border-radius: 4.5rem;
   border: 0;
-  width: 60px;
-  height: 28px;
+  width: 3.75rem;
+  height: 1.75rem;
   cursor: pointer;
 `;
 
@@ -51,9 +51,9 @@ export const SignUpButton = styled.button`
   background-color: #6142f8;
   color: white;
   font-weight: 600;
-  border-radius: 72px;
-  width: 60px;
-  height: 28px;
+  border-radius: 4.5rem;
+  width: 3.75rem;
+  height: 1.75rem;
   border: 0;
   cursor: pointer;
 
