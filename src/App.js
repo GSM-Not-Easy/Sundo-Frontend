@@ -1,5 +1,13 @@
+import Router from './router';
+import GlobalStyles from './styles/GlobalStyle';
+
 function App() {
-  return <div>sundo-front</div>;
+  return (
+    <>
+      <GlobalStyles />
+      <Router />
+    </>
+  );
 }
 
 export default App;
