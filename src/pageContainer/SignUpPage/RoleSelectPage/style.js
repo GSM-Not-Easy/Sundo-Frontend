@@ -34,7 +34,7 @@ export const RoleSelectWrapper = styled.div`
 export const RoleSelectItem = styled.div`
   width: 13.75rem;
   height: 15rem;
-  border: 1px solid #b2b2b2;
+  border: 0.0625rem solid #b2b2b2;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
