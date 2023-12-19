@@ -3,9 +3,9 @@ import styled from 'styled-components';
 export const StyledButton = styled.button`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
-  background-color: ${(props) => props.backgroundColor};
-  font-size: ${(props) => props.fontSize};
+  background-color: ${(props) => props.backgroundcolor};
+  font-size: ${(props) => props.fontsize};
   color: ${(props) => props.color};
-  border-radius: ${(props) => props.borderRadius};
-  margin-top: ${(props) => props.marginTop};
+  border-radius: ${(props) => props.borderradius};
+  margin-top: ${(props) => props.margintop};
 `;

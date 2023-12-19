@@ -12,18 +12,26 @@ export const SignUp = styled.div`
 export const EnterInfoWrapper = styled.div`
   position: relative;
   width: 24.125rem;
-  height: 39rem;
+  height: auto;
   border-radius: 0.75rem;
   background-color: #fff;
   box-shadow: 0rem 0.25rem 0.75rem 0rem rgba(112, 144, 176, 0.15);
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 1.25rem;
 
   .dot2 {
     position: absolute;
     top: 1.75rem;
     right: 2rem;
+  }
+
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -70,7 +78,7 @@ export const InputItem = styled.div`
 `;
 
 export const LinkToSignInText = styled.span`
-  margin-top: 0.75rem;
+  padding-top: 0.75rem;
   color: #888888;
   font-size: 0.75rem;
 
@@ -78,4 +86,12 @@ export const LinkToSignInText = styled.span`
     color: #6142f8;
     margin-left: 0.25rem;
   }
+`;
+
+export const ErrorMessage = styled.span`
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #eb0000;
+  font-size: 0.75rem;
 `;
