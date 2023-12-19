@@ -1,5 +1,6 @@
 import * as S from './style';
 import * as A from '../../../assets/svg';
+import * as C from '../../../components';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useRecoilState } from 'recoil';
@@ -107,6 +108,17 @@ const EnterInfoPage = () => {
               )}
             </S.InputItem>
           </S.InputList>
+          <C.Button
+            type='submit'
+            width='80%'
+            height='3rem'
+            backgroundcolor='#6142F8'
+            color='#fff'
+            borderradius='0.5rem'
+            margintop='2.5rem'
+          >
+            완료
+          </C.Button>
         </form>
         <S.LinkToSignInText>
           SUNDO의 회원이신가요? <Link to='/signin'>로그인</Link>
