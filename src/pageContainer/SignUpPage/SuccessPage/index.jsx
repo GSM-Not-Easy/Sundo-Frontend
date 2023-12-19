@@ -20,8 +20,8 @@ const SuccessPage = () => {
             backgroundcolor='#6142F8'
             color='#fff'
             borderradius='0.5rem'
-            fontsize='1rem'
-            fontweight='600'
+            fontSize='1rem'
+            fontWeight='600'
             margintop='2.5rem'
           >
             로그인 하러가기
