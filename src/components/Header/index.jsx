@@ -2,8 +2,7 @@
 import { LogoIcon, LogoIcon2 } from '../../assets/svg';
 import * as S from './style';
 
-const Header = () => {
-  let type = 'main';
+const Header = ({ type }) => {
   return (
     <S.HeaderWrapper type={type}>
       <S.HeaderContainer>
