@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const HeaderWrapper = styled.div`
   width: 100vw;
   height: 4.5rem;
-  background-color: #6142f8;
+  background-color: '(0, 0, 0, 0.5)';
 `;
 
 export const HeaderContainer = styled.div`
@@ -23,10 +23,11 @@ export const MenuContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 3rem;
+  span {
+    color: ${(props) => (props.color === 'white' ? 'white' : 'black')};
+  }
 `;
-
 export const MenuTitle = styled.span`
-  color: white;
   font-size: 1.125rem;
   cursor: pointer;
 `;

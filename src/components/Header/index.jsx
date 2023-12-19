@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
-import LogoIcon from "../../assets/svg/LogoIcon";
-import * as S from "./style";
+import LogoIcon from '../../assets/svg/LogoIcon';
+import * as S from './style';
 
 const Header = () => {
   return (
@@ -9,7 +9,7 @@ const Header = () => {
         <S.LogoContainer>
           <LogoIcon />
         </S.LogoContainer>
-        <S.MenuContainer>
+        <S.MenuContainer color='white'>
           <S.MenuTitle>홈</S.MenuTitle>
           <S.MenuTitle>분야</S.MenuTitle>
           <S.MenuTitle>과제</S.MenuTitle>
