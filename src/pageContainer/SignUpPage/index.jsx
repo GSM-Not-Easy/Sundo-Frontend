@@ -9,6 +9,7 @@ const SignUpPage = () => {
       {step === '역할선택' && <P.RoleSelectPage />}
       {step === '정보입력' && <P.EnterInfoPage />}
       {step === '선생님정보입력' && <P.TeacherInfoPage />}
+      {step === '회원가입완료' && <P.SuccessPage />}
     </div>
   );
 };
