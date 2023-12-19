@@ -5,26 +5,28 @@ const Button = ({
   width,
   height,
   backgroundcolor,
-  fontsize,
+  fontSize,
   color,
   borderradius,
   margintop,
   onClick,
   disabled,
-  fontweight,
+  fontWeight,
+  type,
 }) => {
   return (
     <StyledButton
       width={width}
       height={height}
       backgroundcolor={backgroundcolor}
-      fontsize={fontsize}
+      fontSize={fontSize}
       color={color}
       borderradius={borderradius}
       margintop={margintop}
       onClick={onClick}
       disabled={disabled}
-      fontweight={fontweight}
+      fontWeight={fontWeight}
+      type={type}
     >
       {children}
     </StyledButton>
