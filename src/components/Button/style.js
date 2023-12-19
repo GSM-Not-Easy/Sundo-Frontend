@@ -8,4 +8,5 @@ export const StyledButton = styled.button`
   color: ${(props) => props.color};
   border-radius: ${(props) => props.borderradius};
   margin-top: ${(props) => props.margintop};
+  font-weight: ${(props) => props.fontweight};
 `;

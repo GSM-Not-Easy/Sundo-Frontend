@@ -8,6 +8,22 @@ export const SignUp = styled.div`
   justify-content: center;
 `;
 
+export const SuccessWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    width: 13.25rem;
+    height: 13.25rem;
+  }
+`;
+
 export const SuccessTitle = styled.h1`
   font-size: #212121;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 2.25rem;
+  margin-bottom: 1.5rem;
 `;
