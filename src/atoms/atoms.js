@@ -2,5 +2,5 @@ import { atom } from 'recoil';
 
 export const Step = atom({
   key: 'Step',
-  default: '역할선택',
+  default: '회원가입완료',
 });

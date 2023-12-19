@@ -11,6 +11,7 @@ const Button = ({
   margintop,
   onClick,
   disabled,
+  fontweight,
 }) => {
   return (
     <StyledButton
@@ -23,6 +24,7 @@ const Button = ({
       margintop={margintop}
       onClick={onClick}
       disabled={disabled}
+      fontweight={fontweight}
     >
       {children}
     </StyledButton>
