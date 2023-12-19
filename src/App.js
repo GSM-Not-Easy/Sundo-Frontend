@@ -1,14 +1,14 @@
-import Header from './components/Header';
+import { RecoilRoot } from 'recoil';
 import Router from './router';
-import GlobalStyles from './styles/GlobalStyle';
+import GlobalStyles from './styles/GlobalStyles';
 
 function App() {
   return (
-    <>
+    <RecoilRoot>
       <GlobalStyles />
       <Router />
-      <Header />
-    </>
+    </RecoilRoot>
+
   );
 }
 
