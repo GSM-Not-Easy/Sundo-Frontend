@@ -64,6 +64,7 @@ export const MessageInput = styled.input`
   border: 0.0625rem solid #6142f8;
   border-radius: 1.5625rem;
   padding-left: 1.5rem;
+  padding-right: 2.5rem;
   font-size: 0.875rem;
   color: #212121;
 `;
