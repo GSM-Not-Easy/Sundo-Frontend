@@ -1,10 +1,8 @@
 // eslint-disable-next-line no-unused-vars
-import LogoIcon from '../../assets/svg/LogoIcon';
-import LogoIcon2 from '../../assets/svg/LogoIcon2';
+import { LogoIcon, LogoIcon2 } from '../../assets/svg';
 import * as S from './style';
 
-const Header = () => {
-  let type = 'main';
+const Header = ({ type }) => {
   return (
     <S.HeaderWrapper type={type}>
       <S.HeaderContainer>
