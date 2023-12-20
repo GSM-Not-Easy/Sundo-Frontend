@@ -84,6 +84,11 @@ const StuInfoPage = () => {
       name: '정윤서',
       major: 'iOS Developer',
     },
+    {
+      classNum: '2209',
+      name: '서주미',
+      major: 'Front-End Develop',
+    },
   ];
 
   return (
