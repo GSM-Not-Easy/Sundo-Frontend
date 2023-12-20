@@ -72,7 +72,7 @@ export const FilterButton = styled.button`
 
 export const FilterWrapper = styled.div`
   position: absolute;
-  width: 399px;
+  width: 24.9375rem;
   height: 17.4375rem;
   z-index: 1;
   right: 20rem;
