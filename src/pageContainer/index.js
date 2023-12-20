@@ -5,3 +5,4 @@ export { default as TeacherInfoPage } from './SignUpPage/TeacherInfoPage';
 export { default as SuccessPage } from './SignUpPage/SuccessPage';
 export { default as StudentInfoPage } from './SignUpPage/StudentInfoPage';
 export { default as WeeClassStartPage } from './WeeClassStartPage';
+export { default as MainPage } from './MainPage';
