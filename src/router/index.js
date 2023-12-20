@@ -5,10 +5,11 @@ export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path='/' element={<P.Main />} />
         <Route path='/signup' element={<P.SignUp />} />
         <Route path='/signin' element={<P.SignIn />} />
         <Route path='/weeclass' element={<P.ChatStart />} />
-        <Route path='/' element={<P.Main />} />
+        <Route path='/my' element={<P.My />} />
       </Routes>
     </BrowserRouter>
   );
