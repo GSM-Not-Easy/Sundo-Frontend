@@ -6,3 +6,4 @@ export { default as My } from './my';
 export { default as StuInfo } from './stuinfo';
 export { default as WeeStuChatPage } from './weestuchat';
 export { default as WeeTeaChatPage } from './weeteachat';
+export { default as ModifyMy } from './modifymy';

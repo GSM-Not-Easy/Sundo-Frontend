@@ -13,6 +13,7 @@ export default function Router() {
         <Route path='/stuinfo' element={<P.StuInfo />} />
         <Route path='/weestuchat' element={<P.WeeStuChatPage />} />
         <Route path='/weeteachat' element={<P.WeeTeaChatPage />} />
+        <Route path='/modifymy' element={<P.ModifyMy />} />
       </Routes>
     </BrowserRouter>
   );
