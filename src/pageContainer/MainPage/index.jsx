@@ -24,7 +24,7 @@ const MainPage = () => {
           <S.Title>선생님 도우미 서비스</S.Title>
         </S.TitleContainer>
         <S.StartContainer>
-          <S.StartButton onClick={() => navigate('/signup')}>
+          <S.StartButton onClick={() => navigate('/signin')}>
             SUNDO 시작하기
           </S.StartButton>
         </S.StartContainer>
