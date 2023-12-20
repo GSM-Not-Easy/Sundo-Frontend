@@ -6,3 +6,4 @@ export { default as Dot2 } from './Dot2';
 export { default as ErrorIcon } from './ErrorIcon';
 export { default as LogoIcon } from './LogoIcon';
 export { default as LogoIcon2 } from './LogoIcon2';
+export { default as ModifyIcon } from './ModifyIcon';
