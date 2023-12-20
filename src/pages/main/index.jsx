@@ -1,7 +1,7 @@
 import { MainPage } from '../../pageContainer';
 
-const SignUp = () => {
+const Main = () => {
   return <MainPage />;
 };
 
-export default SignUp;
+export default Main;
