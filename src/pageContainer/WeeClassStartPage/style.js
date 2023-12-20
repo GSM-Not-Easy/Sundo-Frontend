@@ -46,4 +46,8 @@ export const ChatButton = styled.button`
   border-radius: 0.5rem;
   font-weight: 600;
   margin-top: 1.25rem;
+
+  &:active {
+    background-color: #3819d2;
+  }
 `;
