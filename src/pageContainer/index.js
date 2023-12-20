@@ -7,4 +7,6 @@ export { default as StudentInfoPage } from './SignUpPage/StudentInfoPage';
 export { default as WeeClassStartPage } from './WeeClassStartPage';
 export { default as MainPage } from './MainPage';
 export { default as SignInPage } from './SignInPage';
-
+export { default as StuInfoPage } from './StuInfoPage';
+export { default as WeeStuChatPage } from './WeeStuChatPage';
+export { default as WeeTeaChatPage } from './WeeTeaChatPage';
