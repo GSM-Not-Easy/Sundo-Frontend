@@ -51,6 +51,7 @@ export const FilterButton = styled.button`
   border: 0.0625rem solid #6142f8;
   color: #6142f8;
   border-radius: 0.5rem;
+  outline: none;
 
   &:hover {
     background-color: #6142f8;
@@ -66,6 +67,88 @@ export const FilterButton = styled.button`
     path {
       stroke: #d7d1f6;
     }
+  }
+`;
+
+export const FilterWrapper = styled.div`
+  position: absolute;
+  width: 399px;
+  height: 17.4375rem;
+  z-index: 1;
+  right: 20rem;
+  top: 11.25rem;
+  background-color: #fff;
+  box-shadow: 0rem 0.25rem 0.75rem 0rem rgba(112, 144, 176, 0.12);
+  border-radius: 0.5rem;
+  padding: 1rem;
+
+  svg {
+    cursor: pointer;
+  }
+`;
+
+export const FilterTitle = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const FilterTitleText = styled.span`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #212121;
+`;
+
+export const InputWrapper = styled.div`
+  position: relative;
+  margin-top: 0.75rem;
+
+  input {
+    width: 100%;
+    height: 2.75rem;
+    border-radius: 0.5rem;
+    border: 0.0625rem solid #6142f8;
+    padding-left: 2.25rem;
+  }
+
+  > svg {
+    position: absolute;
+    left: 0.75rem;
+    top: 0.75rem;
+    cursor: default;
+  }
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-size: 0.875rem;
+`;
+export const Label = styled.span`
+  margin-bottom: 0.25rem;
+  margin-top: 1rem;
+`;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  gap: 0.5rem;
+`;
+
+export const Button = styled.button`
+  width: 3.3125rem;
+  height: 2rem;
+  color: #b2b2b2;
+  border: 0.0625rem solid #b2b2b2;
+  border-radius: 0.5rem;
+  margin-bottom: 0.25rem;
+
+  &.selected {
+    background-color: #6142f8;
+    border: none;
+    color: #fff;
   }
 `;
 
@@ -118,6 +201,10 @@ export const StuInfoSelect = styled.div`
   &:hover {
     background: rgba(0, 0, 0, 0.4);
     opacity: 1;
+  }
+
+  &:active {
+    background: rgba(0, 0, 0, 0.6);
   }
 `;
 
