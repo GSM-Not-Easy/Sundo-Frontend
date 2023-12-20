@@ -4,57 +4,74 @@ import * as C from '../../../components';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import { Step } from '../../../atoms/atoms';
 
 const TeacherInfoPage = () => {
+  const [step, setStep] = useRecoilState(Step);
   const { register, handleSubmit } = useForm();
   const [homeroom, setHomeroom] = useState(true);
+
+  const onSubmit = (data) => {
+    if (!homeroom) {
+      data.grade = '';
+      data.classNum = '';
+    }
+    console.log(data);
+    setStep('정보입력');
+  };
+
   const subject = [
     {
-      value: 'korean',
+      value: 'KOREAN',
       label: '국어',
     },
     {
-      value: 'math',
+      value: 'MATH',
       label: '수학',
     },
     {
-      value: 'social',
+      value: 'SOCIAL',
       label: '사회',
     },
     {
-      value: 'science',
+      value: 'SCIENCE',
       label: '과학',
     },
     {
-      value: 'pe',
+      value: 'PE',
       label: '체육',
     },
     {
-      value: 'music',
+      value: 'MUSIC',
       label: '음악',
     },
     {
-      value: 'art',
+      value: 'ART',
       label: '미술',
     },
     {
-      value: 'system_program',
+      value: 'SYSTEM_PROGRAM',
       label: '시스템 프로그래밍',
     },
     {
-      value: 'screen_impl',
+      value: 'SCREEN_IMPL',
       label: '화면구현',
     },
     {
-      value: 'hardware',
+      value: 'HARDWARE',
       label: '하드웨어',
     },
     {
-      value: 'nutritionist',
+      value: 'FOOD',
       label: '영양사',
     },
     {
-      value: 'job',
+      value: 'WEE',
+      label: '위클래스',
+    },
+    {
+      value: 'JOB',
       label: '취업진로',
     },
   ];
@@ -120,6 +137,7 @@ const TeacherInfoPage = () => {
           backgroundcolor='#6142F8'
           borderradius='0.5rem'
           margintop='2.5rem'
+          onClick={handleSubmit(onSubmit)}
         >
           완료
         </C.Button>
