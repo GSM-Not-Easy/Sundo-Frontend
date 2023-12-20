@@ -1,8 +1,10 @@
 import { Header } from '../../components';
 import BackGround from '../../assets/png/BackGround.png';
 import * as S from './style';
+import { useNavigate } from 'react-router-dom';
 
 const MainPage = () => {
+  const navigate = useNavigate();
   return (
     <>
       <Header type='main' />
@@ -22,7 +24,9 @@ const MainPage = () => {
           <S.Title>선생님 도우미 서비스</S.Title>
         </S.TitleContainer>
         <S.StartContainer>
-          <S.StartButton>SUNDO 시작하기</S.StartButton>
+          <S.StartButton onClick={() => navigate('/signup')}>
+            SUNDO 시작하기
+          </S.StartButton>
         </S.StartContainer>
       </S.MainContainer>
     </>
