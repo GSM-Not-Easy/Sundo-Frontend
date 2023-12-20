@@ -84,7 +84,7 @@ export const ClassInfo = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
-  left: 2px;
+  left: 0.125rem;
   gap: 0.25rem;
   span {
     color: #888;
@@ -133,20 +133,20 @@ export const TitleContainer = styled.div`
 `;
 
 export const Introduce = styled.span`
-  font-size: 12px;
+  font-size: 0.75rem;
   color: black;
   font-weight: 400;
-  line-height: 18px;
+  line-height: 1.125rem;
 `;
 
 export const ContentContainer = styled.div`
   width: 37.5rem;
-  padding: 16px;
+  padding: 1rem;
   background-color: #fafafa;
   display: flex;
   align-items: center;
   border-radius: 0.5rem;
-  margin-top: 4px;
+  margin-top: 0.25rem;
 `;
 
 export const IntroduceConent = styled.span`
@@ -158,7 +158,7 @@ export const IntroduceConent = styled.span`
 `;
 
 export const LinkWrapper = styled.div`
-  margin-top: 32px;
+  margin-top: 2rem;
   width: 100%;
   height: auto;
 `;
@@ -167,9 +167,9 @@ export const LinkContainer = styled.div`
   width: 37.5rem;
   height: 3.625rem;
   background-color: #fafafa;
-  border: 1px solid #f5f5f5;
+  border: 0.0625rem solid #f5f5f5;
   border-radius: 0.5rem;
-  margin-top: 4px;
+  margin-top: 0.25rem;
   display: flex;
   cursor: pointer;
 
@@ -186,7 +186,7 @@ export const LinkBox = styled.div`
   display: flex;
   align-items: center;
   height: 3.625rem;
-  padding-left: 16px;
+  padding-left: 1rem;
 `;
 
 export const LinkContent = styled.div`
@@ -194,7 +194,7 @@ export const LinkContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 16px;
+  padding-left: 1rem;
 `;
 
 export const SiteName = styled.span`
@@ -206,13 +206,13 @@ export const SiteName = styled.span`
 
 export const SiteLink = styled.a`
   color: #888;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 400;
-  line-height: 18px; /* 150% */
+  line-height: 1.125rem; /* 150% */
 `;
 
 export const LinkSortContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5rem;
 `;
