@@ -2,11 +2,12 @@ import { Header } from '../../components';
 import * as S from './style';
 import Background from '../../assets/png/BackGround.png';
 import { LinkIcon, ModifyIcon } from '../../assets/svg';
+import Boy from '../../assets/png/Boy.png';
 
 const linkData = [
   {
     name: 'Github',
-    url: 'https://github.com/haonee',
+    url: 'https://github.com/TaerangLee',
   },
   {
     name: 'Tistory',
@@ -29,7 +30,7 @@ const MyPage = () => {
               <S.ProfileContainer>
                 <S.ImgContainer>
                   <img
-                    src=''
+                    src={Boy}
                     style={{
                       width: '100%',
                       height: '100%',
@@ -62,8 +63,8 @@ const MyPage = () => {
               </S.TitleContainer>
               <S.ContentContainer>
                 <S.IntroduceConent>
-                  안녕하세요 프론트를 싫어하는 이태랑입니다. 저는 서버 개발자가
-                  되고 싶습니다.
+                  안녕하세요!! 새로운 것을 배우는 프론트엔드 엔지니어
+                  이태랑입니다.
                 </S.IntroduceConent>
               </S.ContentContainer>
             </S.IntroduceContainer>
