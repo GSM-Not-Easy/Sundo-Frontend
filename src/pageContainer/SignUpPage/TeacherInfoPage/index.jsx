@@ -10,10 +10,10 @@ import { Step } from '../../../atoms/atoms';
 const TeacherInfoPage = () => {
   const [step, setStep] = useRecoilState(Step);
   const { register, handleSubmit } = useForm();
-  const [homeroom, setHomeroom] = useState(true);
+  const [isHomeRoom, setIsHomeRoom] = useState(true);
 
   const onSubmit = (data) => {
-    if (!homeroom) {
+    if (!isHomeRoom) {
       data.grade = '';
       data.classNum = '';
     }
@@ -98,19 +98,19 @@ const TeacherInfoPage = () => {
             <label htmlFor='grade'>담임선생님 여부</label>
             <S.HomeroomButtonWrapper>
               <S.HomeRoomButton
-                homeroom={homeroom}
-                onClick={() => setHomeroom(true)}
+                homeroom={isHomeRoom}
+                onClick={() => setIsHomeRoom(true)}
               >
                 담임
               </S.HomeRoomButton>
               <S.HomeRoomButton
-                homeroom={!homeroom}
-                onClick={() => setHomeroom(false)}
+                homeroom={!isHomeRoom}
+                onClick={() => setIsHomeRoom(false)}
               >
                 비담임
               </S.HomeRoomButton>
             </S.HomeroomButtonWrapper>
-            {homeroom && (
+            {isHomeRoom && (
               <>
                 <select id='grade' {...register('grade')}>
                   {[1, 2, 3].map((grade, idx) => (
