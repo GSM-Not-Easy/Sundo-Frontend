@@ -11,3 +11,5 @@ export { default as NavigateIcon } from './NavigateIcon';
 export { default as ResetIcon } from './ResetIcon';
 export { default as XMark } from './XMark';
 export { default as SearchIcon } from './SearchIcon';
+export { default as ArrowIcon } from './ArrowIcon';
+export { default as SendIcon } from './SendIcon';
