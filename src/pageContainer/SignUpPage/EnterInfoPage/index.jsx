@@ -38,10 +38,10 @@ const EnterInfoPage = () => {
                 id='email'
                 placeholder='이메일을 입력해 주세요.'
                 {...register('email', {
-                  required: '이메일을 입력해주세요.',
+                  required: '이메일을 입력해 주세요.',
                   pattern: {
                     value: /^\S+@\S+$/i,
-                    message: '유효한 이메일 주소를 입력해주세요.',
+                    message: '유효한 이메일 주소를 입력해 주세요.',
                   },
                 })}
               />
