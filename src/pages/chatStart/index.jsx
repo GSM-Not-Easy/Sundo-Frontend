@@ -1,7 +1,7 @@
 import { WeeClassStartPage } from '../../pageContainer';
 
-const SignUp = () => {
+const ChatStart = () => {
   return <WeeClassStartPage />;
 };
 
-export default SignUp;
+export default ChatStart;
