@@ -48,7 +48,7 @@ export const SignInItem = styled.div`
   label {
     font-size: 0.75rem;
     color: #212121;
-    margin-top: 20px;
+    margin-top: 1.25rem;
   }
 
   input {
