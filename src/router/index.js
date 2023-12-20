@@ -10,6 +10,8 @@ export default function Router() {
         <Route path='/weeclass' element={<P.ChatStart />} />
         <Route path='/stuinfo' element={<P.StuInfo />} />
         <Route path='/' element={<P.Main />} />
+        <Route path='/weestuchat' element={<P.WeeStuChatPage />} />
+        <Route path='/weeteachat' element={<P.WeeTeaChatPage />} />
       </Routes>
     </BrowserRouter>
   );
