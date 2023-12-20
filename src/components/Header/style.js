@@ -26,6 +26,7 @@ export const MenuContainer = styled.div`
   gap: 3rem;
   span {
     color: ${(props) => (props.type === 'main' ? 'white' : '#212121')};
+    font-weight: 400;
   }
 `;
 export const MenuTitle = styled.span`
