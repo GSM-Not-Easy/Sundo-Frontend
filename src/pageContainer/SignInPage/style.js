@@ -11,7 +11,7 @@ export const SignIn = styled.div`
 
 export const SignInWrapper = styled.div`
   width: 24.125rem;
-  height: 29.375rem;
+  height: auto;
   background-color: #fff;
   display: flex;
   align-items: center;
@@ -36,7 +36,6 @@ export const SignInList = styled.div`
   width: 80%;
   display: flex;
   flex-direction: column;
-  gap: 1.625rem;
   margin-top: 1.5rem;
 `;
 
@@ -44,10 +43,12 @@ export const SignInItem = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  margin-bottom: 0.25rem;
 
   label {
     font-size: 0.75rem;
     color: #212121;
+    margin-top: 20px;
   }
 
   input {
@@ -64,8 +65,9 @@ export const SignInItem = styled.div`
 export const TextWrapper = styled.div`
   width: 100%;
   display: flex;
-  justify-content: flex-end;
-  margin-top: 0.25rem;
+  align-items: center;
+  justify-content: ${({ hasError }) =>
+    hasError ? 'space-between' : 'flex-end'};
 `;
 
 export const PasswordToLink = styled.span`
@@ -83,4 +85,12 @@ export const LinkToSignUpText = styled.span`
     color: #6142f8;
     margin-left: 0.25rem;
   }
+`;
+
+export const ErrorMessage = styled.span`
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #eb0000;
+  font-size: 0.75rem;
 `;
