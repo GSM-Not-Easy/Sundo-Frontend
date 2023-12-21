@@ -15,6 +15,11 @@ export const JobWrapper = styled.div`
   margin-top: 3.5rem;
 `;
 
+export const JobTitleWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const JobTitle = styled.h1`
   color: #212121;
   font-size: 1.75rem;

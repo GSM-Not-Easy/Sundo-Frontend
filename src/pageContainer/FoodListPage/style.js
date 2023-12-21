@@ -22,6 +22,11 @@ export const FoodTitleWrapper = styled.div`
   height: 2.5rem;
 `;
 
+export const ButtonWrapper = styled.div`
+  display: flex;
+  gap: 0.5rem;
+`;
+
 export const FoodTitle = styled.h1`
   color: #212121;
   font-size: 1.75rem;
