@@ -6,20 +6,21 @@ import Boy from '../../assets/png/Boy.png';
 import { useNavigate } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { slicePoint } from '../../hooks/util/sliceNumber';
 
 const StuInfoPage = () => {
   const students = [
     {
       grade: '2',
       classNum: '2',
-      number: '9',
+      number: '10',
       name: '서주미',
       major: 'Front-End Developer',
     },
     {
       grade: '2',
       classNum: '4',
-      number: '5',
+      number: '4',
       name: '김하온',
       major: 'UI/UX Designer',
     },
@@ -33,7 +34,7 @@ const StuInfoPage = () => {
     {
       grade: '3',
       classNum: '1',
-      number: '15',
+      number: '16',
       name: '정윤서',
       major: 'iOS Developer',
     },
@@ -193,39 +194,22 @@ const StuInfoPage = () => {
           )}
         </S.TitleContainer>
         <S.StuList>
-          {filteredStudents.map((student, idx) =>
-            idx % 2 === 0 ? (
-              <S.StuItem key={idx}>
-                <S.StuInfoSelect onClick={() => navigate(`/${student.name}`)}>
-                  눌러서 이동 <A.NavigateIcon />
-                </S.StuInfoSelect>
-                <img src={Girl} alt='여학생' />
-                <S.StuInfoContent>
-                  <S.Name>{`${student.grade}${
-                    student.classNum
-                  }${formatStudentNumber(Number(student.number))} ${
-                    student.name
-                  }`}</S.Name>
-                  <S.Major>{`${student.major}`}</S.Major>
-                </S.StuInfoContent>
-              </S.StuItem>
-            ) : (
-              <S.StuItem key={idx}>
-                <S.StuInfoSelect onClick={() => navigate(`/${student.name}`)}>
-                  눌러서 이동 <A.NavigateIcon />
-                </S.StuInfoSelect>
-                <img src={Boy} alt='남학생' />
-                <S.StuInfoContent>
-                  <S.Name>{`${student.grade}${
-                    student.classNum
-                  }${formatStudentNumber(Number(student.number))} ${
-                    student.name
-                  }`}</S.Name>
-                  <S.Major>{`${student.major}`}</S.Major>
-                </S.StuInfoContent>
-              </S.StuItem>
-            )
-          )}
+          {filteredStudents.map((student, idx) => (
+            <S.StuItem key={idx}>
+              <S.StuInfoSelect onClick={() => navigate(`/${student.name}`)}>
+                눌러서 이동 <A.NavigateIcon />
+              </S.StuInfoSelect>
+              <img src={slicePoint(student.number, Boy, Girl)} alt='여학생' />
+              <S.StuInfoContent>
+                <S.Name>{`${student.grade}${
+                  student.classNum
+                }${formatStudentNumber(Number(student.number))} ${
+                  student.name
+                }`}</S.Name>
+                <S.Major>{`${student.major}`}</S.Major>
+              </S.StuInfoContent>
+            </S.StuItem>
+          ))}
         </S.StuList>
       </S.Content>
     </S.StuInfo>
