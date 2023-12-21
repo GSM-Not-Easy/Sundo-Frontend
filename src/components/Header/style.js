@@ -24,14 +24,21 @@ export const MenuContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 3rem;
-  span {
-    color: ${(props) => (props.type === 'main' ? 'white' : '#212121')};
-    font-weight: 400;
-  }
 `;
+
 export const MenuTitle = styled.span`
   font-size: 1.125rem;
   cursor: pointer;
+  color: ${(props) =>
+    props.type === 'main' ? 'white' : props.active ? '#6142f8' : '#212121'};
+
+  font-weight: ${(props) => (props.active ? '600' : '400')};
+  &:hover {
+    color: ${(props) => (props.type !== 'main' ? '#6142f8' : '')};
+    font-size: ${(props) => (props.type !== 'main' ? '18px' : '')};
+    line-height: ${(props) => (props.type !== 'main' ? '24px' : '')};
+    font-weight: ${(props) => (props.type !== 'main' ? '600' : '400')};
+  }
 `;
 
 export const SignMenuContainer = styled.div`
