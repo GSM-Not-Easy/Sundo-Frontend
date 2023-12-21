@@ -14,7 +14,7 @@ const MainPage = () => {
         style={{
           position: 'absolute',
           width: '100vw',
-          height: '92.15vh',
+          height: '93.15vh',
           zIndex: '-1',
         }}
       />
