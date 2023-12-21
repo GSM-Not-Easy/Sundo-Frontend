@@ -59,9 +59,7 @@ const StuInfoPage = () => {
       selectedGrade === null || student.grade === selectedGrade.toString();
     const isClassMatch =
       selectedClass === null || student.classNum === selectedClass.toString();
-    const isNameMatch =
-      searchName === '' ||
-      student.name.toLowerCase().includes(searchName.toLowerCase());
+    const isNameMatch = searchName === '' || student.name.includes(searchName);
 
     return isGradeMatch && isClassMatch && isNameMatch;
   });
