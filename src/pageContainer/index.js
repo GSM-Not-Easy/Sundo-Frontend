@@ -16,3 +16,4 @@ export { default as FoodListPage } from './FoodListPage';
 export { default as JobPage } from './JobPage';
 export { default as JobDetailPage } from './JobDetailPage';
 export { default as FieldPage } from './FieldPage';
+export { default as TaskPage } from './TaskPage';
