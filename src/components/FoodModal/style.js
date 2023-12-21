@@ -16,6 +16,7 @@ export const ModalWrapper = styled.div`
   background-color: #fff;
   border-radius: 0.5rem;
   padding: 1.25rem;
+  padding-bottom: 0;
   display: flex;
   flex-direction: column;
 `;
@@ -40,7 +41,7 @@ export const Title = styled.h1`
 export const InputWrapper = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
 `;
 
 export const InputItem = styled.div`
