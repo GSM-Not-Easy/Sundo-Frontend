@@ -31,7 +31,7 @@ export const FoodTitle = styled.h1`
 export const Button = styled.button`
   width: 5.0625rem;
   height: 2.125rem;
-  border: 1px solid #6142f8;
+  border: 0.0625rem solid #6142f8;
   border-radius: 0.5rem;
   color: #6142f8;
   cursor: pointer;

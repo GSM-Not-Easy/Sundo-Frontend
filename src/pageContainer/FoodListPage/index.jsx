@@ -3,9 +3,12 @@ import * as C from '../../components';
 import * as A from '../../assets/svg';
 import Girl from '../../assets/png/Girl.png';
 import Boy from '../../assets/png/Boy.png';
+import { useRecoilState } from 'recoil';
+import { IsFoodModal } from '../../atoms/atoms';
 
 const FoodListPage = () => {
   let isStudent = true;
+  const [isFoodModal, setIsFoodModal] = useRecoilState(IsFoodModal);
   const Food = [
     {
       classNum: '2222',
@@ -34,11 +37,14 @@ const FoodListPage = () => {
   ];
   return (
     <S.FoodList>
+      {isFoodModal && <C.FoodModal />}
       <C.Header />
       <S.FoodWrapper>
         <S.FoodTitleWrapper>
           <S.FoodTitle>신청급식</S.FoodTitle>
-          {isStudent && <S.Button>신청하기</S.Button>}
+          {isStudent && (
+            <S.Button onClick={() => setIsFoodModal(true)}>신청하기</S.Button>
+          )}
         </S.FoodTitleWrapper>
         <S.FoodItemList>
           {Food.map((Food, idx) =>
