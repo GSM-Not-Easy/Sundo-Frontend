@@ -23,10 +23,12 @@ export const JobDetailWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 2rem 2rem 1.5rem 2rem;
+  border-radius: 0.5rem;
 
   img {
     width: 33.75rem;
     height: 17.5rem;
+    border-radius: 0.5rem;
   }
 `;
 
