@@ -42,11 +42,14 @@ const FoodModal = () => {
         <S.InputWrapper>
           <S.InputItem>
             <label htmlFor='menu'>메뉴</label>
-            <input id='menu' />
+            <input id='menu' placeholder='메뉴를 입력해 주세요.' />
           </S.InputItem>
           <S.InputItem>
             <label htmlFor='intro'>한줄소개</label>
-            <input id='intro' />
+            <input
+              id='intro'
+              placeholder='메뉴에 대한 한 줄 소개를 해주세요.'
+            />
           </S.InputItem>
         </S.InputWrapper>
         <S.ButtonContainer>
