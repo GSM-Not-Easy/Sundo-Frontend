@@ -11,4 +11,4 @@ export { default as WeeStuChat } from './weestuchat';
 export { default as WeeTeaChat } from './weeteachat';
 export { default as FoodList } from './foodlist';
 export { default as Job } from './job';
-
+export { default as JobDetail } from './jobdetail';

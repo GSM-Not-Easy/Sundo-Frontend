@@ -18,7 +18,7 @@ export default function Router() {
         <Route path='/weeteachat' element={<P.WeeTeaChat />} />
         <Route path='/foodlist' element={<P.FoodList />} />
         <Route path='/job' element={<P.Job />} />
-
+        <Route path='/job/:id' element={<P.JobDetail />} />
       </Routes>
     </BrowserRouter>
   );
