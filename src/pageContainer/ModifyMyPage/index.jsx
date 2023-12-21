@@ -3,14 +3,16 @@ import * as S from './style';
 import Background from '../../assets/png/BackGround.png';
 import { LinkIcon, ModifyIcon, XIcon, AddIcon } from '../../assets/svg';
 import Boy from '../../assets/png/Boy.png';
+import Girl from '../../assets/png/Girl.png';
 import { useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { slicePoint } from '../../hooks/util/sliceNumber';
 
 const linkData = [
   {
-    key: 1, // 각 링크에 고유한 키를 추가합니다.
+    key: 1,
     name: 'Github',
     url: 'https://github.com/TaerangLee',
   },
@@ -39,6 +41,8 @@ const MyPage = () => {
   const [showLinkAddContainer, setShowLinkAddContainer] = useState(false);
   const [linkDataState, setLinkDataState] = useState(linkData);
 
+  const [classNum, setClassNum] = useState(2415);
+
   const navivation = useNavigate();
 
   const handleRemoveLink = (key) => {
@@ -56,7 +60,7 @@ const MyPage = () => {
               <S.ProfileContainer>
                 <S.ImgContainer>
                   <img
-                    src={Boy}
+                    src={slicePoint(classNum, Boy, Girl)}
                     style={{
                       width: '100%',
                       height: '100%',
