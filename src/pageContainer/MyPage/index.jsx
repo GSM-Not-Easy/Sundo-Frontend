@@ -3,7 +3,10 @@ import * as S from './style';
 import Background from '../../assets/png/BackGround.png';
 import { LinkIcon, ModifyIcon } from '../../assets/svg';
 import Boy from '../../assets/png/Boy.png';
+import Girl from '../../assets/png/Girl.png';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { slicePoint } from '../../hooks/util/sliceNumber';
 
 const linkData = [
   {
@@ -22,6 +25,7 @@ const linkData = [
 
 const MyPage = () => {
   const navigation = useNavigate();
+  const [classNum, setClassNum] = useState(2415); // 서버 통신 전 임의로 넣어둔 classNum입니다.
   return (
     <>
       <Header />
@@ -32,7 +36,7 @@ const MyPage = () => {
               <S.ProfileContainer>
                 <S.ImgContainer>
                   <img
-                    src={Boy}
+                    src={slicePoint(classNum, Boy, Girl)}
                     style={{
                       width: '100%',
                       height: '100%',
@@ -47,7 +51,7 @@ const MyPage = () => {
                     <S.Major>Web/FrontEnd</S.Major>
                   </S.NameMajorContainer>
                   <S.ClassInfo>
-                    <S.ClassInfoTitle>2415</S.ClassInfoTitle>
+                    <S.ClassInfoTitle>{classNum}</S.ClassInfoTitle>
                     <span className='dot'>·</span>
                     <S.ClassInfoTitle>s22051@gsm.hs.kr</S.ClassInfoTitle>
                   </S.ClassInfo>
