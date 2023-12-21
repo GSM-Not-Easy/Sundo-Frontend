@@ -64,7 +64,7 @@ const SignInPage = () => {
                 validate: (value) =>
                   value === '' ||
                   testPassword === value ||
-                  '비밀번호가 일치하지 않습니다.',
+                  '비밀번호를 다시 입력해 주세요.',
               })}
             />
             <S.TextWrapper hasError={!!errors.password}>
