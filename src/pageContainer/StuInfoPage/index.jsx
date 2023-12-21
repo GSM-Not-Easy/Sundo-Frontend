@@ -8,13 +8,63 @@ import { useState, useRef, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 const StuInfoPage = () => {
+  const students = [
+    {
+      grade: '2',
+      classNum: '2',
+      number: '9',
+      name: '서주미',
+      major: 'Front-End Developer',
+    },
+    {
+      grade: '2',
+      classNum: '4',
+      number: '5',
+      name: '김하온',
+      major: 'UI/UX Designer',
+    },
+    {
+      grade: '1',
+      classNum: '4',
+      number: '3',
+      name: '김희망',
+      major: 'Back-End Developer',
+    },
+    {
+      grade: '3',
+      classNum: '1',
+      number: '15',
+      name: '정윤서',
+      major: 'iOS Developer',
+    },
+    {
+      grade: '3',
+      classNum: '3',
+      number: '5',
+      name: '이태랑',
+      major: 'Front-End Developer',
+    },
+  ];
+
   const modalRef = useRef(null);
   const navigate = useNavigate();
   const [isFilter, setIsFilter] = useState(false);
   const [selectedGrade, setSelectedGrade] = useState(null);
   const [selectedClass, setSelectedClass] = useState(null);
-
   const { register, handleSubmit, reset } = useForm();
+  const [searchName, setSearchName] = useState('');
+
+  const filteredStudents = students.filter((student) => {
+    const isGradeMatch =
+      selectedGrade === null || student.grade === selectedGrade.toString();
+    const isClassMatch =
+      selectedClass === null || student.classNum === selectedClass.toString();
+    const isNameMatch =
+      searchName === '' ||
+      student.name.toLowerCase().includes(searchName.toLowerCase());
+
+    return isGradeMatch && isClassMatch && isNameMatch;
+  });
 
   const onSubmit = (data) => {
     let stuInfo = {
@@ -24,6 +74,10 @@ const StuInfoPage = () => {
     };
 
     console.log(stuInfo);
+  };
+
+  const handleNameChange = (e) => {
+    setSearchName(e.target.value);
   };
 
   const handleGradeClick = (grade) => {
@@ -37,7 +91,8 @@ const StuInfoPage = () => {
   const handleReset = () => {
     setSelectedClass(null);
     setSelectedGrade(null);
-    reset();
+    reset({ name: '' });
+    setSearchName('');
   };
 
   useEffect(() => {
@@ -63,33 +118,9 @@ const StuInfoPage = () => {
     };
   }, [isFilter]);
 
-  const students = [
-    {
-      classNum: '2209',
-      name: '서주미',
-      major: 'Front-End Develop',
-    },
-    {
-      classNum: '2405',
-      name: '김하온',
-      major: 'UI/UX Designer',
-    },
-    {
-      classNum: '2114',
-      name: '임준성',
-      major: 'Game Developer',
-    },
-    {
-      classNum: '2116',
-      name: '정윤서',
-      major: 'iOS Developer',
-    },
-    {
-      classNum: '2209',
-      name: '서주미',
-      major: 'Front-End Develop',
-    },
-  ];
+  const formatStudentNumber = (number) => {
+    return number < 10 ? `0${number}` : `${number}`;
+  };
 
   return (
     <S.StuInfo>
@@ -122,6 +153,8 @@ const StuInfoPage = () => {
                   <input
                     placeholder='이름을 입력해 주세요.'
                     {...register('name')}
+                    autoComplete='off'
+                    onChange={handleNameChange}
                   />
                   <A.SearchIcon />
                 </S.InputWrapper>
@@ -162,7 +195,7 @@ const StuInfoPage = () => {
           )}
         </S.TitleContainer>
         <S.StuList>
-          {students.map((student, idx) =>
+          {filteredStudents.map((student, idx) =>
             idx % 2 === 0 ? (
               <S.StuItem key={idx}>
                 <S.StuInfoSelect onClick={() => navigate(`/${student.name}`)}>
@@ -170,7 +203,11 @@ const StuInfoPage = () => {
                 </S.StuInfoSelect>
                 <img src={Girl} alt='여학생' />
                 <S.StuInfoContent>
-                  <S.Name>{`${student.classNum} ${student.name}`}</S.Name>
+                  <S.Name>{`${student.grade}${
+                    student.classNum
+                  }${formatStudentNumber(Number(student.number))} ${
+                    student.name
+                  }`}</S.Name>
                   <S.Major>{`${student.major}`}</S.Major>
                 </S.StuInfoContent>
               </S.StuItem>
@@ -181,7 +218,11 @@ const StuInfoPage = () => {
                 </S.StuInfoSelect>
                 <img src={Boy} alt='남학생' />
                 <S.StuInfoContent>
-                  <S.Name>{`${student.classNum} ${student.name}`}</S.Name>
+                  <S.Name>{`${student.grade}${
+                    student.classNum
+                  }${formatStudentNumber(Number(student.number))} ${
+                    student.name
+                  }`}</S.Name>
                   <S.Major>{`${student.major}`}</S.Major>
                 </S.StuInfoContent>
               </S.StuItem>
