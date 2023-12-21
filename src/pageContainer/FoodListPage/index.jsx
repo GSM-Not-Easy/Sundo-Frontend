@@ -1,6 +1,5 @@
 import * as S from './style';
 import * as C from '../../components';
-import * as A from '../../assets/svg';
 import Girl from '../../assets/png/Girl.png';
 import Boy from '../../assets/png/Boy.png';
 import { useRecoilState } from 'recoil';
@@ -30,9 +29,12 @@ const FoodListPage = () => {
       <S.FoodWrapper>
         <S.FoodTitleWrapper>
           <S.FoodTitle>신청급식</S.FoodTitle>
-          {isStudent && (
-            <S.Button onClick={() => setIsFoodModal(true)}>신청하기</S.Button>
-          )}
+          <S.ButtonWrapper>
+            {isStudent && (
+              <S.Button onClick={() => setIsFoodModal(true)}>신청하기</S.Button>
+            )}
+            <C.FieldLink />
+          </S.ButtonWrapper>
         </S.FoodTitleWrapper>
         <S.FoodItemList>
           {foods.map((food, idx) =>
