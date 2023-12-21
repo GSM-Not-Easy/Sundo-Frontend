@@ -1,6 +1,7 @@
 import * as S from './style';
 import * as C from '../../components';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Task = () => {
   const tasks = [
@@ -76,13 +77,15 @@ const Task = () => {
         </S.TitleWrapper>
         <S.TaskList>
           {filteredTasks.map((task, idx) => (
-            <S.TaskItem key={idx}>
-              <S.TaskNum>{task.num}</S.TaskNum>
-              <S.TaskTitle>{task.title}</S.TaskTitle>
-              <S.TaskDate>
-                {task.startDate} ~ {task.endDate}
-              </S.TaskDate>
-            </S.TaskItem>
+            <Link key={task.num} to={`/task/${task.num}`}>
+              <S.TaskItem key={idx}>
+                <S.TaskNum>{task.num}</S.TaskNum>
+                <S.TaskTitle>{task.title}</S.TaskTitle>
+                <S.TaskDate>
+                  {task.startDate} ~ {task.endDate}
+                </S.TaskDate>
+              </S.TaskItem>
+            </Link>
           ))}
         </S.TaskList>
       </S.TaskWrapper>
