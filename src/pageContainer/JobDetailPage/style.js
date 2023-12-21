@@ -107,4 +107,15 @@ export const BackButton = styled.button`
   color: #6142f8;
   font-weight: 600;
   font-size: 0.75rem;
+
+  &:hover {
+    color: #fff;
+    background-color: #6142f8;
+  }
+
+  &:active {
+    border: 0.0625rem solid #3819d2;
+    background-color: #3819d2;
+    color: #d7d1f6;
+  }
 `;

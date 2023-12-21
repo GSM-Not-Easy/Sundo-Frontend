@@ -21,7 +21,10 @@ const JobPage = () => {
     <S.Job>
       <C.Header />
       <S.JobWrapper>
-        <S.JobTitle>취업진로부</S.JobTitle>
+        <S.JobTitleWrapper>
+          <S.JobTitle>취업진로부</S.JobTitle>
+          <C.FieldLink />
+        </S.JobTitleWrapper>
         <S.JobContent>
           {test.map((Job) => (
             <Link key={Job.id} to={`/job/${Job.id}`}>
