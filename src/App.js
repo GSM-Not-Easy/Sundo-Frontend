@@ -7,7 +7,6 @@ function App() {
   return (
     <RecoilRoot>
       <ToastContainer />
-
       <GlobalStyles />
       <Router />
     </RecoilRoot>
