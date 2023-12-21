@@ -133,7 +133,7 @@ const MyPage = () => {
                 <S.ModifySuccessContainer>
                   <S.ModifyButton
                     onClick={() => {
-                      navivation('/my');
+                      navivation('/');
                       toast.success('수정되었습니다.');
                     }}
                   >
