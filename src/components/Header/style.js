@@ -35,8 +35,8 @@ export const MenuTitle = styled.span`
   font-weight: ${(props) => (props.active ? '600' : '400')};
   &:hover {
     color: ${(props) => (props.type !== 'main' ? '#6142f8' : '')};
-    font-size: ${(props) => (props.type !== 'main' ? '18px' : '')};
-    line-height: ${(props) => (props.type !== 'main' ? '24px' : '')};
+    font-size: ${(props) => (props.type !== 'main' ? '1.125rem' : '')};
+    line-height: ${(props) => (props.type !== 'main' ? '1.5rem' : '')};
     font-weight: ${(props) => (props.type !== 'main' ? '600' : '400')};
   }
 `;
