@@ -3,6 +3,7 @@ import * as S from './style';
 import Background from '../../assets/png/BackGround.png';
 import { LinkIcon, ModifyIcon } from '../../assets/svg';
 import Boy from '../../assets/png/Boy.png';
+import { useNavigate } from 'react-router-dom';
 
 const linkData = [
   {
@@ -20,6 +21,7 @@ const linkData = [
 ];
 
 const MyPage = () => {
+  const navigation = useNavigate();
   return (
     <>
       <Header />
@@ -52,7 +54,7 @@ const MyPage = () => {
                 </S.ProfileContent>
               </S.ProfileContainer>
               <S.ModifyIconWrapper>
-                <S.ModifyIconContainer>
+                <S.ModifyIconContainer onClick={() => navigation('/modifymy')}>
                   <ModifyIcon />
                 </S.ModifyIconContainer>
               </S.ModifyIconWrapper>

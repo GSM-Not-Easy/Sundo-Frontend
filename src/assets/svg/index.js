@@ -16,3 +16,5 @@ export { default as SearchIcon } from './SearchIcon';
 export { default as ArrowIcon } from './ArrowIcon';
 export { default as SendIcon } from './SendIcon';
 export { default as ClipIcon } from './ClipIcon';
+export { default as XIcon } from './XIcon';
+export { default as AddIcon } from './AddIcon';
