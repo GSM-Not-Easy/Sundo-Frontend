@@ -4,5 +4,6 @@ export { default as ChatStart } from './chatstart';
 export { default as SignIn } from './signin';
 export { default as My } from './my';
 export { default as StuInfo } from './stuinfo';
-export { default as WeeStuChatPage } from './weestuchat';
-export { default as WeeTeaChatPage } from './weeteachat';
+export { default as WeeStuChat } from './weestuchat';
+export { default as WeeTeaChat } from './weeteachat';
+export { default as FoodList } from './foodlist';
