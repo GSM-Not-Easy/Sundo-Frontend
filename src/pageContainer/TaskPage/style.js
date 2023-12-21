@@ -81,4 +81,5 @@ export const TaskTitle = styled.span`
 export const TaskDate = styled.span`
   white-space: nowrap;
   padding-right: 2rem;
+  color: #888;
 `;
