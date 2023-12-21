@@ -63,12 +63,12 @@ export const TaskItem = styled.div`
 `;
 
 export const TaskNum = styled.span`
-  width: 33px;
-  height: 24px;
+  width: 2.0625rem;
+  height: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: 1rem;
   color: #888;
 `;
 
