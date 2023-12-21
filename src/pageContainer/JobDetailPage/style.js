@@ -96,15 +96,15 @@ export const DownloadButtonWrapper = styled.button`
 export const DownloadButton = styled.span`
   color: #888;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 0.75rem;
 `;
 
 export const BackButton = styled.button`
   width: 5.625rem;
   height: 1.875rem;
-  border: 1px solid #6142f8;
+  border: 0.0625rem solid #6142f8;
   border-radius: 0.5rem;
   color: #6142f8;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 0.75rem;
 `;
