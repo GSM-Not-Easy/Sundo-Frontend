@@ -42,7 +42,7 @@ const MyPage = () => {
                       height: '100%',
                       objectFit: 'cover',
                     }}
-                    alt='123'
+                    alt='학생'
                   />
                 </S.ImgContainer>
                 <S.ProfileContent>

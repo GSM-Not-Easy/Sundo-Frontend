@@ -6,6 +6,7 @@ import Boy from '../../assets/png/Boy.png';
 import { useNavigate } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { slicePoint } from '../../hooks/util/sliceNumber';
 
 const StuInfoPage = () => {
   const modalRef = useRef(null);
@@ -162,31 +163,18 @@ const StuInfoPage = () => {
           )}
         </S.TitleContainer>
         <S.StuList>
-          {students.map((student, idx) =>
-            idx % 2 === 0 ? (
-              <S.StuItem key={idx}>
-                <S.StuInfoSelect onClick={() => navigate(`/${student.name}`)}>
-                  눌러서 이동 <A.NavigateIcon />
-                </S.StuInfoSelect>
-                <img src={Girl} alt='여학생' />
-                <S.StuInfoContent>
-                  <S.Name>{`${student.classNum} ${student.name}`}</S.Name>
-                  <S.Major>{`${student.major}`}</S.Major>
-                </S.StuInfoContent>
-              </S.StuItem>
-            ) : (
-              <S.StuItem key={idx}>
-                <S.StuInfoSelect onClick={() => navigate(`/${student.name}`)}>
-                  눌러서 이동 <A.NavigateIcon />
-                </S.StuInfoSelect>
-                <img src={Boy} alt='남학생' />
-                <S.StuInfoContent>
-                  <S.Name>{`${student.classNum} ${student.name}`}</S.Name>
-                  <S.Major>{`${student.major}`}</S.Major>
-                </S.StuInfoContent>
-              </S.StuItem>
-            )
-          )}
+          {students.map((student, idx) => (
+            <S.StuItem key={idx}>
+              <S.StuInfoSelect onClick={() => navigate(`/${student.name}`)}>
+                눌러서 이동 <A.NavigateIcon />
+              </S.StuInfoSelect>
+              <img src={slicePoint(student.classNum, Boy, Girl)} alt='여학생' />
+              <S.StuInfoContent>
+                <S.Name>{`${student.classNum} ${student.name}`}</S.Name>
+                <S.Major>{`${student.major}`}</S.Major>
+              </S.StuInfoContent>
+            </S.StuItem>
+          ))}
         </S.StuList>
       </S.Content>
     </S.StuInfo>

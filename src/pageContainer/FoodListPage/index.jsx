@@ -5,13 +5,14 @@ import Boy from '../../assets/png/Boy.png';
 import { useRecoilState } from 'recoil';
 import { IsFoodModal } from '../../atoms/atoms';
 import { useState } from 'react';
+import { slicePoint } from '../../hooks/util/sliceNumber';
 
 const FoodListPage = () => {
   let isStudent = true;
   const [isFoodModal, setIsFoodModal] = useRecoilState(IsFoodModal);
   const [foods, setFoods] = useState([
     {
-      classNum: '2222',
+      classNum: '2405',
       name: '김하온',
       food: '마라탕',
       text: '너무 먹고 싶어요',
@@ -37,31 +38,18 @@ const FoodListPage = () => {
           </S.ButtonWrapper>
         </S.FoodTitleWrapper>
         <S.FoodItemList>
-          {foods.map((food, idx) =>
-            idx % 2 === 0 ? (
-              <S.FoodItem key={idx}>
-                <S.NameWrapper>
-                  <img src={Girl} alt='여학생' />
-                  <span>
-                    {food.classNum} {food.name}
-                  </span>
-                </S.NameWrapper>
-                <S.Food>{food.food}</S.Food>
-                <S.Text>{food.text}</S.Text>
-              </S.FoodItem>
-            ) : (
-              <S.FoodItem key={idx}>
-                <S.NameWrapper>
-                  <img src={Boy} alt='남학생' />
-                  <span>
-                    {food.classNum} {food.name}
-                  </span>
-                </S.NameWrapper>
-                <S.Food>{food.food}</S.Food>
-                <S.Text>{food.text}</S.Text>
-              </S.FoodItem>
-            )
-          )}
+          {foods.map((food, idx) => (
+            <S.FoodItem key={idx}>
+              <S.NameWrapper>
+                <img src={slicePoint(food.classNum, Boy, Girl)} alt='학생' />
+                <span>
+                  {food.classNum} {food.name}
+                </span>
+              </S.NameWrapper>
+              <S.Food>{food.food}</S.Food>
+              <S.Text>{food.text}</S.Text>
+            </S.FoodItem>
+          ))}
         </S.FoodItemList>
       </S.FoodWrapper>
     </S.FoodList>

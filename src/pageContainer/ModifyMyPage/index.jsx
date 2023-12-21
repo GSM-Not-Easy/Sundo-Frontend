@@ -66,7 +66,7 @@ const MyPage = () => {
                       height: '100%',
                       objectFit: 'cover',
                     }}
-                    alt='123'
+                    alt='학생'
                   />
                 </S.ImgContainer>
                 <S.ProfileContent>
@@ -75,7 +75,7 @@ const MyPage = () => {
                     <S.Major>Web/FrontEnd</S.Major>
                   </S.NameMajorContainer>
                   <S.ClassInfo>
-                    <S.ClassInfoTitle>2415</S.ClassInfoTitle>
+                    <S.ClassInfoTitle>{classNum}</S.ClassInfoTitle>
                     <span className='dot'>·</span>
                     <S.ClassInfoTitle>s22051@gsm.hs.kr</S.ClassInfoTitle>
                   </S.ClassInfo>
