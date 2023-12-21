@@ -12,3 +12,6 @@ export { default as WeeStuChatPage } from './WeeStuChatPage';
 export { default as WeeTeaChatPage } from './WeeTeaChatPage';
 export { default as MyPage } from './MyPage';
 export { default as ModifyMyPage } from './ModifyMyPage';
+export { default as FoodListPage } from './FoodListPage';
+export { default as JobPage } from './JobPage';
+

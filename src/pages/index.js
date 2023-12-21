@@ -7,3 +7,8 @@ export { default as StuInfo } from './stuinfo';
 export { default as WeeStuChatPage } from './weestuchat';
 export { default as WeeTeaChatPage } from './weeteachat';
 export { default as ModifyMy } from './modifymy';
+export { default as WeeStuChat } from './weestuchat';
+export { default as WeeTeaChat } from './weeteachat';
+export { default as FoodList } from './foodlist';
+export { default as Job } from './job';
+
