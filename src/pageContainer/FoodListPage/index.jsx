@@ -5,6 +5,7 @@ import Girl from '../../assets/png/Girl.png';
 import Boy from '../../assets/png/Boy.png';
 
 const FoodListPage = () => {
+  let isStudent = true;
   const Food = [
     {
       classNum: '2222',
@@ -35,7 +36,10 @@ const FoodListPage = () => {
     <S.FoodList>
       <C.Header />
       <S.FoodWrapper>
-        <S.FoodTitle>신청급식</S.FoodTitle>
+        <S.FoodTitleWrapper>
+          <S.FoodTitle>신청급식</S.FoodTitle>
+          {isStudent && <S.Button>신청하기</S.Button>}
+        </S.FoodTitleWrapper>
         <S.FoodItemList>
           {Food.map((Food, idx) =>
             idx % 2 === 0 ? (
