@@ -60,7 +60,14 @@ export const InputItem = styled.div`
     border: 0.0625rem solid #cacaca;
 
     &:focus {
-      border: 1px solid #6142f8;
+      border: 0.0625rem solid #6142f8;
+    }
+
+    &::placeholder {
+      color: #b2b2b2;
+      font-size: 0.875rem;
+      font-weight: 400;
+      line-height: 1.25rem;
     }
   }
 `;
