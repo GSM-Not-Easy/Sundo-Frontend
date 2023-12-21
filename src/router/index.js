@@ -14,6 +14,7 @@ export default function Router() {
         <Route path='/weestuchat' element={<P.WeeStuChat />} />
         <Route path='/weeteachat' element={<P.WeeTeaChat />} />
         <Route path='/foodlist' element={<P.FoodList />} />
+        <Route path='/job' element={<P.Job />} />
       </Routes>
     </BrowserRouter>
   );
