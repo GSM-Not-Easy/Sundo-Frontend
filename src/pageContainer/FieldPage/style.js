@@ -21,13 +21,13 @@ export const FieldContent = styled.div`
   justify-content: center;
 
   img {
-    width: 240px;
-    height: 240px;
+    width: 15rem;
+    height: 15rem;
   }
 `;
 
 export const Title = styled.h1`
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 600;
 `;
 
