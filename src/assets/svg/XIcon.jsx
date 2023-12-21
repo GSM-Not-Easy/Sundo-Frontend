@@ -10,9 +10,9 @@ const XIcon = () => {
       <path
         d='M4 12L12 4M4 4L12 12'
         stroke='#B2B2B2'
-        stroke-width='1.5'
-        stroke-linecap='round'
-        stroke-linejoin='round'
+        strokeWidth='1.5'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
     </svg>
   );
