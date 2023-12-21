@@ -54,8 +54,8 @@ const MyPage = () => {
                 </S.ProfileContent>
               </S.ProfileContainer>
               <S.ModifyIconWrapper>
-                <S.ModifyIconContainer>
-                  <ModifyIcon onClick={() => navigation('/modifymy')} />
+                <S.ModifyIconContainer onClick={() => navigation('/modifymy')}>
+                  <ModifyIcon />
                 </S.ModifyIconContainer>
               </S.ModifyIconWrapper>
             </S.ProfileWrapper>
