@@ -4,10 +4,13 @@ import * as A from '../../assets/svg';
 import * as C from '../';
 import { useRecoilState } from 'recoil';
 import { IsFoodModal } from '../../atoms/atoms';
+import { useForm } from 'react-hook-form';
 
-const FoodModal = () => {
+const FoodModal = ({ onAddFood }) => {
   const modalRef = useRef(null);
+  const { register, handleSubmit, reset } = useForm();
   const [isFoodModal, setIsFoodModal] = useRecoilState(IsFoodModal);
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
@@ -30,6 +33,21 @@ const FoodModal = () => {
       window.removeEventListener('keydown', handleEscapeKey);
     };
   }, [isFoodModal]);
+
+  const onSubmit = (data) => {
+    const newFood = {
+      classNum: '2415',
+      name: '이태랑',
+      food: data.menu,
+      text: data.intro,
+    };
+    console.log(data);
+
+    onAddFood(newFood);
+    reset();
+    setIsFoodModal(false);
+  };
+
   return (
     <S.FoodModal>
       <S.ModalWrapper ref={modalRef}>
@@ -42,13 +60,20 @@ const FoodModal = () => {
         <S.InputWrapper>
           <S.InputItem>
             <label htmlFor='menu'>메뉴</label>
-            <input id='menu' placeholder='메뉴를 입력해 주세요.' />
+            <input
+              autoComplete='off'
+              id='menu'
+              placeholder='메뉴를 입력해 주세요.'
+              {...register('menu', { required: true })}
+            />
           </S.InputItem>
           <S.InputItem>
             <label htmlFor='intro'>한줄소개</label>
             <input
+              autoComplete='off'
               id='intro'
               placeholder='메뉴에 대한 한 줄 소개를 해주세요.'
+              {...register('intro', { required: true })}
             />
           </S.InputItem>
         </S.InputWrapper>
@@ -59,6 +84,8 @@ const FoodModal = () => {
             backgroundcolor='#6142F8'
             borderradius='0.5rem'
             color='#fff'
+            type='submit'
+            onClick={handleSubmit(onSubmit)}
           >
             확인
           </C.Button>
