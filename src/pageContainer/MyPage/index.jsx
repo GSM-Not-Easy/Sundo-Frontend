@@ -48,7 +48,7 @@ const MyPage = () => {
                 <S.ProfileContent>
                   <S.NameMajorContainer>
                     <S.Name>이태랑</S.Name>
-                    <S.Major>Web/FrontEnd</S.Major>
+                    <S.Major>Front-End Developer</S.Major>
                   </S.NameMajorContainer>
                   <S.ClassInfo>
                     <S.ClassInfoTitle>{classNum}</S.ClassInfoTitle>

@@ -50,18 +50,20 @@ export const ProfileContent = styled.div`
 `;
 
 export const NameMajorContainer = styled.div`
-  width: 100%;
+  width: 18.75rem;
   height: 2.5rem;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 0.3125rem;
+  margin-left: 0.625rem;
 `;
 
 export const Name = styled.span`
   font-weight: 600;
   line-height: 2.25rem;
   font-size: 1.5rem;
+  width: 4.0625rem;
   color: black;
 `;
 
@@ -74,7 +76,7 @@ export const Major = styled.span`
   font-size: 0.75rem;
   display: flex;
   justify-content: center;
-  width: 5.875rem;
+  width: 8.125rem;
   height: 1.25rem;
 `;
 

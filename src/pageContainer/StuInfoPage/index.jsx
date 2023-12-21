@@ -196,7 +196,7 @@ const StuInfoPage = () => {
         <S.StuList>
           {filteredStudents.map((student, idx) => (
             <S.StuItem key={idx}>
-              <S.StuInfoSelect onClick={() => navigate(`/${student.name}`)}>
+              <S.StuInfoSelect onClick={() => navigate('/my')}>
                 눌러서 이동 <A.NavigateIcon />
               </S.StuInfoSelect>
               <img src={slicePoint(student.number, Boy, Girl)} alt='여학생' />
