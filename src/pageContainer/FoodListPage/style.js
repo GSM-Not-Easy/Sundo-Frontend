@@ -94,6 +94,7 @@ export const Text = styled.span`
   color: #888;
   font-size: 0.75rem;
   overflow: auto;
+  line-height: 15px;
 
   &::-webkit-scrollbar {
     display: none;
