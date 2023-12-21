@@ -1,7 +1,7 @@
 import * as S from './style';
 import * as C from '../../components';
 import * as A from '../../assets/svg';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const TaskDetailPage = () => {
   const tasks = [
@@ -29,7 +29,6 @@ const TaskDetailPage = () => {
 
   const { id } = useParams();
   const selectedTask = tasks.find((task) => task.num === id);
-  const navigate = useNavigate();
 
   return (
     <S.TaskDetail>
