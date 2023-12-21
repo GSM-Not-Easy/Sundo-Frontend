@@ -38,13 +38,28 @@ const Header = ({ type }) => {
           >
             마이페이지
           </S.MenuTitle>
+          <S.MenuTitle
+            onClick={() => navigation('/stuinfo')}
+            active={location.pathname === '/stuinfo'}
+            type={type}
+          >
+            학생 정보
+          </S.MenuTitle>
         </S.MenuContainer>
         <S.SignMenuContainer>
           <S.SignMenuContainer type={type}>
-            <S.SignInButton className='signIn' type={type}>
+            <S.SignInButton
+              className='signIn'
+              type={type}
+              onClick={() => navigation('/signin')}
+            >
               로그인
             </S.SignInButton>
-            <S.SignUpButton className='signUp' type={type}>
+            <S.SignUpButton
+              className='signUp'
+              type={type}
+              onClick={() => navigation('/signup')}
+            >
               회원가입
             </S.SignUpButton>
           </S.SignMenuContainer>
