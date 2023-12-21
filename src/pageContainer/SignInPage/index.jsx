@@ -2,8 +2,6 @@ import * as S from './style';
 import * as A from '../../assets/svg';
 import * as C from '../../components';
 import { Link, useNavigate } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
-import { Step } from '../../atoms/atoms';
 import { useForm } from 'react-hook-form';
 
 const SignInPage = () => {
