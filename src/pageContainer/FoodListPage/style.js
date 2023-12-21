@@ -15,10 +15,37 @@ export const FoodWrapper = styled.div`
   margin-top: 3.5rem;
 `;
 
+export const FoodTitleWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 2.5rem;
+`;
+
 export const FoodTitle = styled.h1`
   color: #212121;
   font-size: 1.75rem;
   font-weight: 700;
+`;
+
+export const Button = styled.button`
+  width: 5.0625rem;
+  height: 2.125rem;
+  border: 1px solid #6142f8;
+  border-radius: 0.5rem;
+  color: #6142f8;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #6142f8;
+    color: #fff;
+  }
+
+  &:active {
+    background-color: #3819d2;
+    border: 1px solid #3819d2;
+    color: #d7d1f6;
+  }
 `;
 
 export const FoodItemList = styled.div`
@@ -36,7 +63,6 @@ export const FoodItem = styled.div`
   flex-direction: column;
   gap: 0.5rem;
   padding: 1rem;
-  padding-bottom: 0;
   border-radius: 0.5rem;
 `;
 
