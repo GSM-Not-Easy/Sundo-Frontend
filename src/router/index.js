@@ -21,6 +21,7 @@ export default function Router() {
         <Route path='/job/:id' element={<P.JobDetail />} />
         <Route path='/field' element={<P.Field />} />
         <Route path='/task' element={<P.Task />} />
+        <Route path='/task/:id' element={<P.TaskDetail />} />
       </Routes>
     </BrowserRouter>
   );
