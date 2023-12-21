@@ -32,7 +32,7 @@ export const StartButton = styled.button`
   margin-top: 1.75rem;
   width: 12.125rem;
   height: 3rem;
-  border: 1px solid white;
+  border: 0.0625rem solid white;
   border-radius: 0.5rem;
   background-color: #7459f9;
   color: white;
