@@ -6,7 +6,7 @@ import Boy from '../../assets/png/Boy.png';
 import Girl from '../../assets/png/Girl.png';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { slicePoint } from '../../hooks/util/sliceNumber';
+import { slicePoint } from '../../api/src/util/sliceNumber';
 
 const linkData = [
   {
