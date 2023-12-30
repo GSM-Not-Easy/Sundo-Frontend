@@ -6,7 +6,7 @@ import Boy from '../../assets/png/Boy.png';
 import { useNavigate } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { slicePoint } from '../../api/src/util/sliceNumber';
+import { slicePoint } from '../../api/src/hooks/util/sliceNumber';
 
 const StuInfoPage = () => {
   const students = [

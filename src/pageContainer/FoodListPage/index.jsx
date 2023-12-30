@@ -5,7 +5,7 @@ import Boy from '../../assets/png/Boy.png';
 import { useRecoilState } from 'recoil';
 import { IsFoodModal } from '../../atoms/atoms';
 import { useState } from 'react';
-import { slicePoint } from '../../api/src/util/sliceNumber';
+import { slicePoint } from '../../api/src/hooks/util/sliceNumber';
 
 const FoodListPage = () => {
   let isStudent = true;
