@@ -10,8 +10,7 @@ const TeacherInfoPage = ({ useForm }) => {
   const { register, handleSubmit } = useForm;
   const [isHomeRoom, setIsHomeRoom] = useRecoilState(IsHomeRoom);
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = () => {
     setStep('정보입력');
   };
 
