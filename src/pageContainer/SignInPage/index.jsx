@@ -1,28 +1,25 @@
 import * as S from './style';
 import * as A from '../../assets/svg';
 import * as C from '../../components';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { usePostLogin } from '../../api/src/hooks/auth/usePostLogin';
 
 const SignInPage = () => {
   const {
     register,
     handleSubmit,
-    watch,
+    setError,
     formState: { errors },
   } = useForm();
-
-  const navigate = useNavigate();
+  const { mutate } = usePostLogin({ setError });
 
   const onSubmit = (data) => {
-    console.log(data);
-    navigate('/');
+    mutate({
+      email: data.email,
+      password: data.password,
+    });
   };
-
-  const testPassword = '1234';
-  const enteredPassword = watch('password');
-
-  console.log(enteredPassword);
 
   return (
     <S.SignIn>
@@ -61,10 +58,6 @@ const SignInPage = () => {
               placeholder='비밀번호를 입력해 주세요.'
               {...register('password', {
                 required: '비밀번호를 입력해 주세요.',
-                validate: (value) =>
-                  value === '' ||
-                  testPassword === value ||
-                  '비밀번호를 다시 입력해 주세요.',
               })}
             />
             <S.TextWrapper hasError={!!errors.password}>
