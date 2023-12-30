@@ -2,18 +2,16 @@ import * as S from './style';
 import * as A from '../../../assets/svg';
 import * as C from '../../../components';
 import { Link } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import { Step } from '../../../atoms/atoms';
-import { useForm } from 'react-hook-form';
 
-const StudentInfoPage = () => {
-  const [step, setStep] = useRecoilState(Step);
-  const { register, handleSubmit } = useForm();
+const StudentInfoPage = ({ useForm }) => {
+  const setStep = useSetRecoilState(Step);
+  const { register, handleSubmit } = useForm;
 
   const numberOptions = Array.from({ length: 19 }, (_, i) => i + 1);
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = () => {
     setStep('정보입력');
   };
 
@@ -30,7 +28,7 @@ const StudentInfoPage = () => {
             <label htmlFor='grade'>학년</label>
             <select id='grade' {...register('grade')}>
               {[1, 2, 3].map((grade) => (
-                <option key={grade} value={String(grade)}>
+                <option key={grade} value={grade}>
                   {grade}학년
                 </option>
               ))}
@@ -40,7 +38,7 @@ const StudentInfoPage = () => {
             <label htmlFor='class'>반</label>
             <select id='class' {...register('classNum')}>
               {[1, 2, 3, 4].map((classNum) => (
-                <option key={classNum} value={String(classNum)}>
+                <option key={classNum} value={classNum}>
                   {classNum}반
                 </option>
               ))}
@@ -50,7 +48,7 @@ const StudentInfoPage = () => {
             <label htmlFor='number'>번호</label>
             <select id='number' {...register('number')}>
               {numberOptions.map((number) => (
-                <option key={number} value={String(number)}>
+                <option key={number} value={number}>
                   {number}번
                 </option>
               ))}

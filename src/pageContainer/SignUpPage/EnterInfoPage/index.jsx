@@ -2,22 +2,41 @@ import * as S from './style';
 import * as A from '../../../assets/svg';
 import * as C from '../../../components';
 import { Link } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
-import { useRecoilState } from 'recoil';
-import { Step } from '../../../atoms/atoms';
+import { usePostStudentSignUp } from '../../../api/src/hooks/auth/usePostStudentSignUp';
+import { usePostTeacherSignUp } from '../../../api/src/hooks/auth/usePostTeacherSignUp';
+import { useRecoilValue } from 'recoil';
+import { IsStudent, IsHomeRoom } from '../../../atoms/atoms';
 
-const EnterInfoPage = () => {
-  const [step, setStep] = useRecoilState(Step);
+const EnterInfoPage = ({ useForm }) => {
+  const { mutate: studentMutate } = usePostStudentSignUp();
+  const { mutate: teacherMutate } = usePostTeacherSignUp();
+  const isStudent = useRecoilValue(IsStudent);
+  const isHomeRoom = useRecoilValue(IsHomeRoom);
   const {
     register,
     handleSubmit,
     formState: { errors },
     watch,
-  } = useForm();
+  } = useForm;
 
   const onSubmit = (data) => {
-    console.log(data);
-    setStep('회원가입완료');
+    isStudent
+      ? studentMutate({
+          email: data.email,
+          password: data.password1,
+          name: data.name,
+          grade: Number(data.grade),
+          classNum: Number(data.classNum),
+          number: Number(data.number),
+        })
+      : teacherMutate({
+          email: data.email,
+          password: data.password1,
+          name: data.name,
+          subject: data.subject,
+          grade: isHomeRoom ? Number(data.grade) : null,
+          classNum: isHomeRoom ? Number(data.classNum) : null,
+        });
   };
   const password1Value = watch('password1', '');
 

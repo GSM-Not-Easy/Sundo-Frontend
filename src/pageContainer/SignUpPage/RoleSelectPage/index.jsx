@@ -1,10 +1,11 @@
 import * as S from './style';
 import * as A from '../../../assets/svg';
-import { useRecoilState } from 'recoil';
-import { Step } from '../../../atoms/atoms';
+import { useSetRecoilState } from 'recoil';
+import { IsStudent, Step } from '../../../atoms/atoms';
 
 const RoleSelectPage = () => {
-  const [step, setStep] = useRecoilState(Step);
+  const setStep = useSetRecoilState(Step);
+  const setIsStudnet = useSetRecoilState(IsStudent);
 
   return (
     <S.SignUp>
@@ -14,11 +15,21 @@ const RoleSelectPage = () => {
           <S.SignUpText>GSM 선생님 통합 관리 서비스, 선도</S.SignUpText>
         </S.SignUpTitle>
         <S.RoleSelectWrapper>
-          <S.RoleSelectItem onClick={() => setStep('학생정보입력')}>
+          <S.RoleSelectItem
+            onClick={() => {
+              setStep('학생정보입력');
+              setIsStudnet(true);
+            }}
+          >
             <A.StudentIcon />
             <S.RoleSelectText>학생으로 가입하기</S.RoleSelectText>
           </S.RoleSelectItem>
-          <S.RoleSelectItem onClick={() => setStep('선생님정보입력')}>
+          <S.RoleSelectItem
+            onClick={() => {
+              setStep('선생님정보입력');
+              setIsStudnet(false);
+            }}
+          >
             <A.TeacherIcon />
             <S.RoleSelectText>선생님으로 가입하기</S.RoleSelectText>
           </S.RoleSelectItem>
