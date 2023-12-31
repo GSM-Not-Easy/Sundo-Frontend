@@ -2,14 +2,16 @@ import { useEffect, useRef } from 'react';
 import * as S from './style';
 import * as A from '../../assets/svg';
 import * as C from '../';
-import { useRecoilState } from 'recoil';
-import { IsFoodModal } from '../../atoms/atoms';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { IsFoodModal, IsLoginInfo } from '../../atoms/atoms';
 import { useForm } from 'react-hook-form';
+import { formatStudentNumber } from '../../api/src/hooks/util/formatStudentNumber';
 
 const FoodModal = ({ onAddFood }) => {
   const modalRef = useRef(null);
   const { register, handleSubmit, reset } = useForm();
   const [isFoodModal, setIsFoodModal] = useRecoilState(IsFoodModal);
+  const isLoginInfo = useRecoilValue(IsLoginInfo);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -36,13 +38,14 @@ const FoodModal = ({ onAddFood }) => {
 
   const onSubmit = (data) => {
     const newFood = {
-      classNum: '2415',
-      name: '이태랑',
+      grade: isLoginInfo.grade,
+      classNum: isLoginInfo.classNum,
+      number: formatStudentNumber(isLoginInfo.number),
+      name: isLoginInfo.name,
       food: data.menu,
       text: data.intro,
     };
-    console.log(data);
-
+    console.log(newFood);
     onAddFood(newFood);
     reset();
     setIsFoodModal(false);

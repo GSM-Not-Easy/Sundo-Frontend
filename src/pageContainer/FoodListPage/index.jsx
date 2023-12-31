@@ -2,25 +2,23 @@ import * as S from './style';
 import * as C from '../../components';
 import Girl from '../../assets/png/Girl.png';
 import Boy from '../../assets/png/Boy.png';
-import { useRecoilState } from 'recoil';
-import { IsFoodModal } from '../../atoms/atoms';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { IsFoodModal, IsLoginInfo } from '../../atoms/atoms';
 import { useState } from 'react';
 import { slicePoint } from '../../api/src/hooks/util/sliceNumber';
 
 const FoodListPage = () => {
-  let isStudent = true;
+  const isLoginInfo = useRecoilValue(IsLoginInfo);
   const [isFoodModal, setIsFoodModal] = useRecoilState(IsFoodModal);
-  const [foods, setFoods] = useState([
-    {
-      classNum: '2405',
-      name: '김하온',
-      food: '마라탕',
-      text: '너무 먹고 싶어요',
-    },
-  ]);
+  const [foods, setFoods] = useState(() => {
+    const savedFoods = localStorage.getItem('foods');
+    return savedFoods ? JSON.parse(savedFoods) : [];
+  });
 
   const handleAddFood = (newFood) => {
-    setFoods([...foods, newFood]);
+    const newFoods = [...foods, newFood];
+    setFoods(newFoods);
+    localStorage.setItem('foods', JSON.stringify(newFoods));
   };
 
   return (
@@ -31,7 +29,7 @@ const FoodListPage = () => {
         <S.FoodTitleWrapper>
           <S.FoodTitle>신청급식</S.FoodTitle>
           <S.ButtonWrapper>
-            {isStudent && (
+            {isLoginInfo.role === 'student' && (
               <S.Button onClick={() => setIsFoodModal(true)}>신청하기</S.Button>
             )}
             <C.FieldLink />
@@ -41,9 +39,12 @@ const FoodListPage = () => {
           {foods.map((food, idx) => (
             <S.FoodItem key={idx}>
               <S.NameWrapper>
-                <img src={slicePoint(food.classNum, Boy, Girl)} alt='여학생' />
+                <img src={slicePoint(food.number, Boy, Girl)} alt='여학생' />
+                {console.log(food.number)}
                 <span>
-                  {food.classNum} {food.name}
+                  {food.grade}
+                  {food.classNum}
+                  {food.number} {food.name}
                 </span>
               </S.NameWrapper>
               <S.Food>{food.food}</S.Food>
