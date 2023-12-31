@@ -9,6 +9,9 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { slicePoint } from '../../api/src/hooks/util/sliceNumber';
+import { useRecoilValue } from 'recoil';
+import { IsLoginInfo } from '../../atoms/atoms';
+import { formatStudentNumber } from '../../api/src/hooks/util/formatStudentNumber';
 
 const linkData = [
   {
@@ -29,8 +32,8 @@ const linkData = [
 ];
 
 const myObject = {
-  introduce: '안녕하세요! 새로운 것을 배우는 프론트엔드 엔지니어 이태랑입니다.',
-  major: 'Web/FrontEnd',
+  introduce: '안녕하세요!! 새로운 것을 배우는 프론트엔드 엔지니어입니다.',
+  major: 'Front-End Developer',
   githubLink: 'https://github.com/TaerangLee',
   portfolioLink: 'Your Portfolio Link Here',
   blogLink: 'https://ltr2006.tistory.com/',
@@ -40,8 +43,7 @@ const MyPage = () => {
   const [modify, setModifyData] = useState(myObject);
   const [showLinkAddContainer, setShowLinkAddContainer] = useState(false);
   const [linkDataState, setLinkDataState] = useState(linkData);
-
-  const [classNum, setClassNum] = useState(2415);
+  const isLoginInfo = useRecoilValue(IsLoginInfo);
 
   const navivation = useNavigate();
 
@@ -60,7 +62,7 @@ const MyPage = () => {
               <S.ProfileContainer>
                 <S.ImgContainer>
                   <img
-                    src={slicePoint(classNum, Boy, Girl)}
+                    src={slicePoint(isLoginInfo.number, Boy, Girl)}
                     style={{
                       width: '100%',
                       height: '100%',
@@ -71,13 +73,17 @@ const MyPage = () => {
                 </S.ImgContainer>
                 <S.ProfileContent>
                   <S.NameMajorContainer>
-                    <S.Name>이태랑</S.Name>
+                    <S.Name>{isLoginInfo.name}</S.Name>
                     <S.Major>Web/FrontEnd</S.Major>
                   </S.NameMajorContainer>
                   <S.ClassInfo>
-                    <S.ClassInfoTitle>2415</S.ClassInfoTitle>
+                    <S.ClassInfoTitle>{`${isLoginInfo.grade}${
+                      isLoginInfo.classNum
+                    }${formatStudentNumber(
+                      isLoginInfo.number
+                    )}`}</S.ClassInfoTitle>
                     <span className='dot'>·</span>
-                    <S.ClassInfoTitle>s22051@gsm.hs.kr</S.ClassInfoTitle>
+                    <S.ClassInfoTitle>{isLoginInfo.email}</S.ClassInfoTitle>
                   </S.ClassInfo>
                 </S.ProfileContent>
               </S.ProfileContainer>
