@@ -1,23 +1,16 @@
 import * as S from './style';
 import * as A from '../../../assets/svg';
 import * as C from '../../../components';
-import { useForm } from 'react-hook-form';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
-import { Step } from '../../../atoms/atoms';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { IsHomeRoom, Step } from '../../../atoms/atoms';
 
-const TeacherInfoPage = () => {
-  const [step, setStep] = useRecoilState(Step);
-  const { register, handleSubmit } = useForm();
-  const [isHomeRoom, setIsHomeRoom] = useState(true);
+const TeacherInfoPage = ({ useForm }) => {
+  const setStep = useSetRecoilState(Step);
+  const { register, handleSubmit } = useForm;
+  const [isHomeRoom, setIsHomeRoom] = useRecoilState(IsHomeRoom);
 
-  const onSubmit = (data) => {
-    if (!isHomeRoom) {
-      data.grade = '';
-      data.classNum = '';
-    }
-    console.log(data);
+  const onSubmit = () => {
     setStep('정보입력');
   };
 
@@ -114,14 +107,14 @@ const TeacherInfoPage = () => {
               <>
                 <select id='grade' {...register('grade')}>
                   {[1, 2, 3].map((grade, idx) => (
-                    <option key={idx} value={String(grade)}>
+                    <option key={idx} value={grade}>
                       {grade}학년
                     </option>
                   ))}
                 </select>
                 <select id='classNum' {...register('classNum')}>
                   {[1, 2, 3, 4].map((classNum, idx) => (
-                    <option key={idx} value={String(classNum)}>
+                    <option key={idx} value={classNum}>
                       {classNum}반
                     </option>
                   ))}

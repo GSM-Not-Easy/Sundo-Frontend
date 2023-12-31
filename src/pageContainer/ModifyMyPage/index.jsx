@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { slicePoint } from '../../api/src/util/sliceNumber';
+import { slicePoint } from '../../api/src/hooks/util/sliceNumber';
 
 const linkData = [
   {

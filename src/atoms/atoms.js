@@ -9,3 +9,13 @@ export const IsFoodModal = atom({
   key: 'IsModal',
   default: false,
 });
+
+export const IsStudent = atom({
+  key: 'IsStudent',
+  default: false,
+});
+
+export const IsHomeRoom = atom({
+  key: 'IsHomeRoom',
+  default: false,
+});

@@ -2,8 +2,11 @@ import * as S from './style';
 import SuccessIcon from '../../../assets/png/SuccessIcon.png';
 import * as C from '../../../components';
 import { Link } from 'react-router-dom';
+import { useSetRecoilState } from 'recoil';
+import { Step } from '../../../atoms/atoms';
 
 const SuccessPage = () => {
+  const setStep = useSetRecoilState(Step);
   return (
     <S.SignUp>
       <S.SuccessWrapper>
@@ -23,6 +26,7 @@ const SuccessPage = () => {
             fontSize='1rem'
             fontWeight='600'
             margintop='2.5rem'
+            onClick={() => setStep('역할선택')}
           >
             로그인 하러가기
           </C.Button>
