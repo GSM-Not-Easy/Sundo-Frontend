@@ -1,9 +1,14 @@
 import * as S from './style';
 import * as A from '../../assets/svg';
 import * as C from '../../components';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { usePostLogin } from '../../api/src/hooks/auth/usePostLogin';
+import { SIGN_IN_DATA } from '../../constant/signInData';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useSetRecoilState } from 'recoil';
+import { IsLoginInfo } from '../../atoms/atoms';
 
 const SignInPage = () => {
   const {
@@ -12,13 +17,36 @@ const SignInPage = () => {
     setError,
     formState: { errors },
   } = useForm();
+
   const { mutate } = usePostLogin({ setError });
 
+  const setLoginInfo = useSetRecoilState(IsLoginInfo);
+  const navigate = useNavigate();
+
   const onSubmit = (data) => {
-    mutate({
-      email: data.email,
-      password: data.password,
-    });
+    // mutate({
+    //   email: data.email,
+    //   password: data.password,
+    // });
+
+    const user = SIGN_IN_DATA.find(
+      (user) => user.email === data.email && user.password === data.password
+    );
+
+    if (user) {
+      setLoginInfo(user);
+      navigate('/');
+      toast.success('로그인 성공!');
+    } else {
+      setError('email', {
+        type: 'manual',
+        message: '이메일 또는 비밀번호가 일치하지 않습니다.',
+      });
+      setError('password', {
+        type: 'manual',
+        message: '이메일 또는 비밀번호가 일치하지 않습니다.',
+      });
+    }
   };
 
   return (
