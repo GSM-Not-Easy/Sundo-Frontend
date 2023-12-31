@@ -4,10 +4,11 @@ import * as C from '../../../components';
 import { Link } from 'react-router-dom';
 import { usePostStudentSignUp } from '../../../api/src/hooks/auth/usePostStudentSignUp';
 import { usePostTeacherSignUp } from '../../../api/src/hooks/auth/usePostTeacherSignUp';
-import { useRecoilValue } from 'recoil';
-import { IsStudent, IsHomeRoom } from '../../../atoms/atoms';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { IsStudent, IsHomeRoom, Step } from '../../../atoms/atoms';
 
 const EnterInfoPage = ({ useForm }) => {
+  const setStep = useSetRecoilState(Step);
   const { mutate: studentMutate } = usePostStudentSignUp();
   const { mutate: teacherMutate } = usePostTeacherSignUp();
   const isStudent = useRecoilValue(IsStudent);
@@ -20,23 +21,24 @@ const EnterInfoPage = ({ useForm }) => {
   } = useForm;
 
   const onSubmit = (data) => {
-    isStudent
-      ? studentMutate({
-          email: data.email,
-          password: data.password1,
-          name: data.name,
-          grade: Number(data.grade),
-          classNum: Number(data.classNum),
-          number: Number(data.number),
-        })
-      : teacherMutate({
-          email: data.email,
-          password: data.password1,
-          name: data.name,
-          subject: data.subject,
-          grade: isHomeRoom ? Number(data.grade) : null,
-          classNum: isHomeRoom ? Number(data.classNum) : null,
-        });
+    // isStudent
+    //   ? studentMutate({
+    //       email: data.email,
+    //       password: data.password1,
+    //       name: data.name,
+    //       grade: Number(data.grade),
+    //       classNum: Number(data.classNum),
+    //       number: Number(data.number),
+    //     })
+    //   : teacherMutate({
+    //       email: data.email,
+    //       password: data.password1,
+    //       name: data.name,
+    //       subject: data.subject,
+    //       grade: isHomeRoom ? Number(data.grade) : null,
+    //       classNum: isHomeRoom ? Number(data.classNum) : null,
+    //     });
+    setStep('회원가입완료');
   };
   const password1Value = watch('password1', '');
 
