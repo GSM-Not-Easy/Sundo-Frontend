@@ -1,12 +1,13 @@
 import { Header } from '../../components';
 import * as S from './style';
-import Background from '../../assets/png/BackGround.png';
 import { LinkIcon, ModifyIcon } from '../../assets/svg';
 import Boy from '../../assets/png/Boy.png';
 import Girl from '../../assets/png/Girl.png';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 import { slicePoint } from '../../api/src/hooks/util/sliceNumber';
+import { formatStudentNumber } from '../../api/src/hooks/util/formatStudentNumber';
+import { useRecoilValue } from 'recoil';
+import { IsLoginInfo } from '../../atoms/atoms';
 
 const linkData = [
   {
@@ -24,8 +25,8 @@ const linkData = [
 ];
 
 const MyPage = () => {
+  const isLoginInfo = useRecoilValue(IsLoginInfo);
   const navigation = useNavigate();
-  const [classNum, setClassNum] = useState(2415); // 서버 통신 전 임의로 넣어둔 classNum입니다.
   return (
     <>
       <Header />
@@ -36,7 +37,7 @@ const MyPage = () => {
               <S.ProfileContainer>
                 <S.ImgContainer>
                   <img
-                    src={slicePoint(classNum, Boy, Girl)}
+                    src={slicePoint(isLoginInfo.number, Boy, Girl)}
                     style={{
                       width: '100%',
                       height: '100%',
@@ -47,13 +48,17 @@ const MyPage = () => {
                 </S.ImgContainer>
                 <S.ProfileContent>
                   <S.NameMajorContainer>
-                    <S.Name>이태랑</S.Name>
+                    <S.Name>{isLoginInfo.name}</S.Name>
                     <S.Major>Front-End Developer</S.Major>
                   </S.NameMajorContainer>
                   <S.ClassInfo>
-                    <S.ClassInfoTitle>{classNum}</S.ClassInfoTitle>
+                    <S.ClassInfoTitle>
+                      {`${isLoginInfo.grade}${
+                        isLoginInfo.classNum
+                      }${formatStudentNumber(isLoginInfo.number)}`}
+                    </S.ClassInfoTitle>
                     <span className='dot'>·</span>
-                    <S.ClassInfoTitle>s22051@gsm.hs.kr</S.ClassInfoTitle>
+                    <S.ClassInfoTitle>{isLoginInfo.email}</S.ClassInfoTitle>
                   </S.ClassInfo>
                 </S.ProfileContent>
               </S.ProfileContainer>
@@ -69,8 +74,7 @@ const MyPage = () => {
               </S.TitleContainer>
               <S.ContentContainer>
                 <S.IntroduceConent>
-                  안녕하세요!! 새로운 것을 배우는 프론트엔드 엔지니어
-                  이태랑입니다.
+                  안녕하세요!! 새로운 것을 배우는 프론트엔드 엔지니어입니다.
                 </S.IntroduceConent>
               </S.ContentContainer>
             </S.IntroduceContainer>
