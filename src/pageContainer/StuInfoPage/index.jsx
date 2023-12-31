@@ -7,46 +7,10 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { slicePoint } from '../../api/src/hooks/util/sliceNumber';
+import { formatStudentNumber } from '../../api/src/hooks/util/formatStudentNumber';
+import { SIGN_IN_DATA } from '../../constant/signInData';
 
 const StuInfoPage = () => {
-  const students = [
-    {
-      grade: '2',
-      classNum: '2',
-      number: '10',
-      name: '서주미',
-      major: 'Front-End Developer',
-    },
-    {
-      grade: '2',
-      classNum: '4',
-      number: '4',
-      name: '김하온',
-      major: 'UI/UX Designer',
-    },
-    {
-      grade: '1',
-      classNum: '4',
-      number: '3',
-      name: '김희망',
-      major: 'Back-End Developer',
-    },
-    {
-      grade: '3',
-      classNum: '1',
-      number: '16',
-      name: '정윤서',
-      major: 'iOS Developer',
-    },
-    {
-      grade: '3',
-      classNum: '3',
-      number: '5',
-      name: '이태랑',
-      major: 'Front-End Developer',
-    },
-  ];
-
   const modalRef = useRef(null);
   const navigate = useNavigate();
   const [isFilter, setIsFilter] = useState(false);
@@ -55,14 +19,21 @@ const StuInfoPage = () => {
   const { register, handleSubmit, reset } = useForm();
   const [searchName, setSearchName] = useState('');
 
-  const filteredStudents = students.filter((student) => {
+  const filteredStudents = SIGN_IN_DATA.filter((student) => {
     const isGradeMatch =
       selectedGrade === null || student.grade === selectedGrade.toString();
     const isClassMatch =
       selectedClass === null || student.classNum === selectedClass.toString();
     const isNameMatch = searchName === '' || student.name.includes(searchName);
+    const isRoleMatch = student.role === 'student';
 
-    return isGradeMatch && isClassMatch && isNameMatch;
+    return isGradeMatch && isClassMatch && isNameMatch && isRoleMatch;
+  });
+
+  const sortedStudents = filteredStudents.sort((a, b) => {
+    const aStudentNumber = `${a.grade}${a.classNum}${a.number}`;
+    const bStudentNumber = `${b.grade}${b.classNum}${b.number}`;
+    return aStudentNumber.localeCompare(bStudentNumber);
   });
 
   const onSubmit = (data) => {
@@ -71,8 +42,6 @@ const StuInfoPage = () => {
       grade: selectedGrade,
       classNum: selectedClass,
     };
-
-    console.log(stuInfo);
   };
 
   const handleNameChange = (e) => {
@@ -117,10 +86,6 @@ const StuInfoPage = () => {
     };
   }, [isFilter]);
 
-  const formatStudentNumber = (number) => {
-    return number < 10 ? `0${number}` : `${number}`;
-  };
-
   return (
     <S.StuInfo>
       <C.Header />
@@ -128,7 +93,7 @@ const StuInfoPage = () => {
         <S.TitleContainer>
           <S.TitleWrapper>
             <S.Title>학생정보</S.Title>
-            <S.SubTitle>{students.length}명</S.SubTitle>
+            <S.SubTitle>{filteredStudents.length}명</S.SubTitle>
           </S.TitleWrapper>
           <S.FilterButton onClick={() => setIsFilter((prev) => !prev)}>
             <A.FilterIcon />
@@ -194,9 +159,9 @@ const StuInfoPage = () => {
           )}
         </S.TitleContainer>
         <S.StuList>
-          {filteredStudents.map((student, idx) => (
+          {sortedStudents.map((student, idx) => (
             <S.StuItem key={idx}>
-              <S.StuInfoSelect onClick={() => navigate('/my')}>
+              <S.StuInfoSelect onClick={() => navigate(`/my/${student.id}`)}>
                 눌러서 이동 <A.NavigateIcon />
               </S.StuInfoSelect>
               <img src={slicePoint(student.number, Boy, Girl)} alt='여학생' />
