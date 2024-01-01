@@ -31,7 +31,7 @@ const EmploymentWritePage = () => {
 
   const onSubmit = (data) => {
     const storedData = localStorage.getItem('JOB_DATA');
-    let newData = storedData ? JSON.parse(storedData) : [...JOB_DATA]; // 기존 데이터가 없을 때 JOB_DATA 사용
+    let newData = storedData ? JSON.parse(storedData) : [...JOB_DATA];
 
     const updatedData = {
       id: (newData.length > 0
