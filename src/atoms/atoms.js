@@ -38,6 +38,11 @@ export const IsLoginInfo = atom({
     classNum: 1,
     number: 1,
     subject: '',
+    major: '',
+    info: '',
+    github: '',
+    blog: '',
+    insta: '',
   },
   effects_UNSTABLE: [persistAtom],
 });
