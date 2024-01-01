@@ -3,11 +3,14 @@ import * as C from '../../components';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { TASK_DATA } from '../../constant/taskData';
+import { useRecoilValue } from 'recoil';
+import { IsLoginInfo } from '../../atoms/atoms';
 
 const Task = () => {
   const [selectedSubject, setSelectedSubject] = useState('');
   const [selectedGrade, setSelectedGrade] = useState('');
   const [filteredTasks, setFilteredTasks] = useState(TASK_DATA);
+  const isLoginInfo = useRecoilValue(IsLoginInfo);
 
   const handleSubjectChange = (e) => {
     const subject = e.target.value;
@@ -44,6 +47,7 @@ const Task = () => {
         <S.TitleWrapper>
           <S.Title>과제</S.Title>
           <S.ButtonWrapper>
+            {isLoginInfo.role === 'teacher' && <S.Button>글 등록하기</S.Button>}
             <select value={selectedSubject} onChange={handleSubjectChange}>
               <option value=''>과목</option>
               <option value='SW'>SW</option>
