@@ -1,35 +1,28 @@
 import * as S from './style';
 import * as C from '../../components';
-import TestImg from '../../assets/png/BackGround.png';
 import { Link } from 'react-router-dom';
+import { JOB_DATA } from '../../constant/jobData';
+import { useRecoilValue } from 'recoil';
+import { IsLoginInfo } from '../../atoms/atoms';
 
 const JobPage = () => {
-  const test = [
-    {
-      id: '1',
-      name: '(주)비바리퍼블리카',
-      major: 'Front-End 개발자',
-    },
-    {
-      id: '2',
-      name: '(주)당근',
-      major: 'UI/UX 디자이너',
-    },
-  ];
-
+  const isLoginInfo = useRecoilValue(IsLoginInfo);
   return (
     <S.Job>
       <C.Header />
       <S.JobWrapper>
         <S.JobTitleWrapper>
           <S.JobTitle>취업진로부</S.JobTitle>
-          <C.FieldLink />
+          <S.ButtonContainer>
+            {isLoginInfo.role === 'teacher' && <S.Button>글 등록하기</S.Button>}
+            <C.FieldLink />
+          </S.ButtonContainer>
         </S.JobTitleWrapper>
         <S.JobContent>
-          {test.map((Job) => (
+          {JOB_DATA.map((Job) => (
             <Link key={Job.id} to={`/job/${Job.id}`}>
               <S.JobItem>
-                <img src={TestImg} alt='채용 공고 이미지' />
+                <img src={Job.img} alt='채용 공고 이미지' />
                 <S.Info>
                   <S.CompanyName>{Job.name}</S.CompanyName>
                   <S.Major>{Job.major}</S.Major>
