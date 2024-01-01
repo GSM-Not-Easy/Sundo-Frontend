@@ -3,12 +3,25 @@ import * as A from '../../assets/svg';
 import * as C from '../../components';
 import { useNavigate, useParams } from 'react-router-dom';
 import { JOB_DATA } from '../../constant/jobData';
+import { useEffect, useState } from 'react';
 
 const JobDetail = () => {
   const { id } = useParams();
-  const selectedJob = JOB_DATA.find((job) => job.id === id);
   const navigate = useNavigate();
+  const [selectedJob, setSelectedJob] = useState(null);
 
+  useEffect(() => {
+    const storedData = localStorage.getItem('JOB_DATA');
+    if (storedData) {
+      const jobData = JSON.parse(storedData);
+      const job = jobData.find((job) => job.id === id);
+      setSelectedJob(job);
+    }
+  }, [id]);
+
+  if (!selectedJob) {
+    return <div>로딩 중...</div>;
+  }
   return (
     <S.JobDetail>
       <C.Header />

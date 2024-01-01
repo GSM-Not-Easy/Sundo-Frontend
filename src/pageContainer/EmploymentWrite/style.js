@@ -38,7 +38,8 @@ export const JobContainer = styled.div`
 
 export const Input = styled.input`
   width: 18rem;
-  padding: 0.875rem 9.5rem 0.875rem 1rem;
+  height: 3rem;
+  padding-left: 0.875rem;
   justify-content: center;
   align-items: center;
   color: var(--grayscale-gray08, #5d5d5d);
