@@ -34,8 +34,6 @@ const JobDetail = () => {
     return <div>로딩 중...</div>;
   }
 
-  console.log(selectedJob);
-
   return (
     <S.JobDetail>
       <C.Header />
