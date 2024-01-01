@@ -1,10 +1,10 @@
 import * as S from './style';
 
-const SendedChat = ({ children }) => {
+const SendedChat = ({ children, time }) => {
   return (
     <S.SendChatContainer>
       <S.ChatContainer>
-        <S.Time>13:10</S.Time>
+        <S.Time>{time}</S.Time>
         <S.SendedChat>{children}</S.SendedChat>
       </S.ChatContainer>
     </S.SendChatContainer>

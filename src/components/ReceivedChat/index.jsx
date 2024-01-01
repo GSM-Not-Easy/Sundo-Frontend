@@ -10,7 +10,6 @@ const ReceivedChat = ({ children }) => {
       </S.Profile>
       <S.ChatContainer>
         <S.ReceivedChat>{children}</S.ReceivedChat>
-        <S.Time>13:10</S.Time>
       </S.ChatContainer>
     </S.ReceivedChatContainer>
   );
