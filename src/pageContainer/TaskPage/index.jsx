@@ -2,30 +2,15 @@ import * as S from './style';
 import * as C from '../../components';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { TASK_DATA } from '../../constant/taskData';
+import { useRecoilValue } from 'recoil';
+import { IsLoginInfo } from '../../atoms/atoms';
 
 const Task = () => {
-  const tasks = [
-    {
-      num: '1',
-      title: '피그마프로토타이핑하기레전드스파이더맨티비오늘까지해오세용용용',
-      startDate: '2023.12.31',
-      endDate: '2024.01.01',
-      subject: 'HW',
-      grade: '3',
-    },
-    {
-      num: '2',
-      title: '네트워크와 데이터베이스 과목 보고서 과제 제출',
-      startDate: '2023.12.31',
-      endDate: '2024.01.08',
-      subject: 'SW',
-      grade: '2',
-    },
-  ];
-
   const [selectedSubject, setSelectedSubject] = useState('');
   const [selectedGrade, setSelectedGrade] = useState('');
-  const [filteredTasks, setFilteredTasks] = useState(tasks);
+  const [filteredTasks, setFilteredTasks] = useState(TASK_DATA);
+  const isLoginInfo = useRecoilValue(IsLoginInfo);
 
   const handleSubjectChange = (e) => {
     const subject = e.target.value;
@@ -43,9 +28,9 @@ const Task = () => {
 
   const filterTasks = (subject, grade) => {
     if (subject === '' && grade === '') {
-      setFilteredTasks(tasks);
+      setFilteredTasks(TASK_DATA);
     } else {
-      const filtered = tasks.filter((task) => {
+      const filtered = TASK_DATA.filter((task) => {
         return (
           (subject === '' || task.subject === subject) &&
           (grade === '' || task.grade === grade)
@@ -62,6 +47,7 @@ const Task = () => {
         <S.TitleWrapper>
           <S.Title>과제</S.Title>
           <S.ButtonWrapper>
+            {isLoginInfo.role === 'teacher' && <S.Button>글 등록하기</S.Button>}
             <select value={selectedSubject} onChange={handleSubjectChange}>
               <option value=''>과목</option>
               <option value='SW'>SW</option>
