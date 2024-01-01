@@ -26,6 +26,12 @@ export const JobTitle = styled.h1`
   font-weight: 700;
 `;
 
+export const ButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
 export const JobContent = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -64,4 +70,26 @@ export const Major = styled.span`
   color: #b2b2b2;
   font-size: 0.75rem;
   font-weight: 600;
+`;
+
+export const Button = styled.button`
+  width: 6.375rem;
+  height: 2rem;
+  outline: none;
+  color: #6142f8;
+  font-weight: 400;
+  border-radius: 0.25rem;
+  border: 0.0625rem solid #6142f8;
+  font-size: 0.875rem;
+
+  &:hover {
+    color: #fff;
+    background-color: #6142f8;
+  }
+
+  &:active {
+    border: 0.0625rem solid #3819d2;
+    background-color: #3819d2;
+    color: #d7d1f6;
+  }
 `;
