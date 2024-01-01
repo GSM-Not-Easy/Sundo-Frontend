@@ -16,6 +16,7 @@ export default function Router() {
         <Route path='/weeteachat' element={<P.WeeTeaChat />} />
         <Route path='/foodlist' element={<P.FoodList />} />
         <Route path='/job' element={<P.Job />} />
+        <Route path='/jobwrite' element={<P.EmploymentWrite />} />
         <Route path='/job/:id' element={<P.JobDetail />} />
         <Route path='/field' element={<P.Field />} />
         <Route path='/task' element={<P.Task />} />
