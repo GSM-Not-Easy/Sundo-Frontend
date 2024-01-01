@@ -46,3 +46,8 @@ export const IsLoginInfo = atom({
   },
   effects_UNSTABLE: [persistAtom],
 });
+
+export const IsTaskModal = atom({
+  key: 'IsTaskModal',
+  default: false,
+});
