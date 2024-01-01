@@ -9,14 +9,30 @@ const WeeStuChatPage = () => {
   const navigate = useNavigate();
   const { register, handleSubmit, reset } = useForm();
 
+  let today = new Date();
+  let hours = today.getHours(); // 시
+  let minutes = today.getMinutes(); // 분
+
   const onSubmit = (data) => {
     if (data.message.trim() !== '') {
-      setMessages([...messages, data.message]);
+      setMessages([
+        ...messages,
+        { message: data.message, time: `${hours}:${minutes}` },
+      ]);
+      localStorage.setItem(
+        'weeChat',
+        JSON.stringify([
+          ...messages,
+          { message: data.message, time: `${hours}:${minutes}` },
+        ])
+      );
     }
     reset();
   };
 
-  const [messages, setMessages] = useState([]);
+  const weeChat = localStorage.getItem('weeChat');
+
+  const [messages, setMessages] = useState(weeChat ? JSON.parse(weeChat) : []);
 
   return (
     <S.WeeStuChat>
@@ -26,10 +42,12 @@ const WeeStuChatPage = () => {
       </div>
       <S.ChatContainer>
         <S.ChatWrapper>
-          <C.ReceivedChat>반갑습니다</C.ReceivedChat>
-          {messages.map((message, idx) => (
-            <C.SendedChat key={idx}>{message}</C.SendedChat>
+          {messages.map(({ message, time }, idx) => (
+            <C.SendedChat key={idx} time={time}>
+              {message}
+            </C.SendedChat>
           ))}
+          <C.ReceivedChat>반갑습니다</C.ReceivedChat>
         </S.ChatWrapper>
         <S.InputWrapper>
           <form onSubmit={handleSubmit(onSubmit)}>

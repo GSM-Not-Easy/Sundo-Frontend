@@ -28,6 +28,7 @@ export const SIGN_IN_DATA = [
     grade: '2',
     classNum: '2',
     number: '9',
+    major: 'Front-End Developer',
   },
   {
     id: 4,
@@ -38,6 +39,7 @@ export const SIGN_IN_DATA = [
     grade: '1',
     classNum: '1',
     number: '5',
+    major: 'Design',
   },
   {
     id: 5,
@@ -48,6 +50,7 @@ export const SIGN_IN_DATA = [
     grade: '3',
     classNum: '4',
     number: '8',
+    major: 'Back-End Developer',
   },
   {
     id: 6,
@@ -58,6 +61,7 @@ export const SIGN_IN_DATA = [
     grade: '2',
     classNum: '1',
     number: '15',
+    major: 'Front-End Developer',
   },
   {
     id: 7,
@@ -68,5 +72,6 @@ export const SIGN_IN_DATA = [
     grade: '1',
     classNum: '4',
     number: '16',
+    major: 'iOS Developer',
   },
 ];
