@@ -90,7 +90,7 @@ const EmploymentWritePage = () => {
             <S.DetailContentContainer>
               <S.Title>상세내용</S.Title>
               <S.DetailContentTextArea
-                placeholder='과제에 대한 내용을 입력해 주세요.'
+                placeholder='기업에 대한 내용을 입력해 주세요.'
                 {...register('detailContent')}
               />
             </S.DetailContentContainer>
