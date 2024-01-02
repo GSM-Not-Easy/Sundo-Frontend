@@ -19,7 +19,6 @@ export { default as FieldPage } from './FieldPage';
 export { default as TaskPage } from './TaskPage';
 export { default as TaskDetailPage } from './TaskDetailPage';
 export { default as ProfilePage } from './ProfilePage';
-
 export { default as EmploymentWritePage } from './EmploymentWrite';
-
+export { default as TaskWritePage } from './TaskWritePage';
 export { default as MyDetailPage } from './MyDetailPage';
