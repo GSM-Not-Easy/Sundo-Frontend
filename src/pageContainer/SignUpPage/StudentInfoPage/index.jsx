@@ -2,16 +2,18 @@ import * as S from './style';
 import * as A from '../../../assets/svg';
 import * as C from '../../../components';
 import { Link } from 'react-router-dom';
-import { useSetRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { Step } from '../../../atoms/atoms';
+import { useForm } from 'react-hook-form';
 
-const StudentInfoPage = ({ useForm }) => {
-  const setStep = useSetRecoilState(Step);
-  const { register, handleSubmit } = useForm;
+const StudentInfoPage = () => {
+  const [step, setStep] = useRecoilState(Step);
+  const { register, handleSubmit } = useForm();
 
   const numberOptions = Array.from({ length: 19 }, (_, i) => i + 1);
 
-  const onSubmit = () => {
+  const onSubmit = (data) => {
+    console.log(data);
     setStep('정보입력');
   };
 
@@ -21,14 +23,14 @@ const StudentInfoPage = ({ useForm }) => {
         <A.Dot1 />
         <S.SignUpTitle>
           <A.SignUpLogo width={170} height={64} />
-          <S.SignUpText>GSM 선생님 통합 관리 서비스</S.SignUpText>
+          <S.SignUpText>GSM 선생님 도우미 서비스</S.SignUpText>
         </S.SignUpTitle>
         <S.SelectList>
           <S.SelectItem>
             <label htmlFor='grade'>학년</label>
             <select id='grade' {...register('grade')}>
               {[1, 2, 3].map((grade) => (
-                <option key={grade} value={grade}>
+                <option key={grade} value={String(grade)}>
                   {grade}학년
                 </option>
               ))}
@@ -38,7 +40,7 @@ const StudentInfoPage = ({ useForm }) => {
             <label htmlFor='class'>반</label>
             <select id='class' {...register('classNum')}>
               {[1, 2, 3, 4].map((classNum) => (
-                <option key={classNum} value={classNum}>
+                <option key={classNum} value={String(classNum)}>
                   {classNum}반
                 </option>
               ))}
@@ -48,7 +50,7 @@ const StudentInfoPage = ({ useForm }) => {
             <label htmlFor='number'>번호</label>
             <select id='number' {...register('number')}>
               {numberOptions.map((number) => (
-                <option key={number} value={number}>
+                <option key={number} value={String(number)}>
                   {number}번
                 </option>
               ))}

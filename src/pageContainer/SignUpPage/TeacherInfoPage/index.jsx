@@ -74,7 +74,7 @@ const TeacherInfoPage = ({ useForm }) => {
         <A.Dot1 />
         <S.SignUpTitle>
           <A.SignUpLogo width={170} height={64} />
-          <S.SignUpText>GSM 선생님 통합 관리 서비스</S.SignUpText>
+          <S.SignUpText>GSM 선생님 도우미 서비스</S.SignUpText>
         </S.SignUpTitle>
         <S.TeacherInfoList>
           <S.TeacherInfoItem>
