@@ -9,7 +9,33 @@ import { IsLoginInfo } from '../../atoms/atoms';
 const Task = () => {
   const [selectedSubject, setSelectedSubject] = useState('');
   const [selectedGrade, setSelectedGrade] = useState('');
-  const [filteredTasks, setFilteredTasks] = useState(TASK_DATA);
+  const [filteredTasks, setFilteredTasks] = useState([]);
+
+  const [taskData, setTaskData] = useState([]);
+
+  useEffect(() => {
+    const storedData = localStorage.getItem('TASK_DATA');
+    if (storedData) {
+      setTaskData(JSON.parse(storedData));
+    } else {
+      setTaskData(TASK_DATA);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (selectedSubject === '' && selectedGrade === '') {
+      setFilteredTasks(taskData);
+    } else {
+      const filtered = taskData.filter((task) => {
+        return (
+          (selectedSubject === '' || task.subject === selectedSubject) &&
+          (selectedGrade === '' || task.grade === selectedGrade)
+        );
+      });
+      setFilteredTasks(filtered);
+    }
+  }, [selectedSubject, selectedGrade, taskData]);
+
   const isLoginInfo = useRecoilValue(IsLoginInfo);
 
   const handleSubjectChange = (e) => {
@@ -21,10 +47,6 @@ const Task = () => {
     const grade = e.target.value;
     setSelectedGrade(grade);
   };
-
-  useEffect(() => {
-    filterTasks(selectedSubject, selectedGrade);
-  }, [selectedSubject, selectedGrade]);
 
   const filterTasks = (subject, grade) => {
     if (subject === '' && grade === '') {
@@ -47,7 +69,11 @@ const Task = () => {
         <S.TitleWrapper>
           <S.Title>과제</S.Title>
           <S.ButtonWrapper>
-            {isLoginInfo.role === 'teacher' && <S.Button>글 등록하기</S.Button>}
+            {isLoginInfo.role === 'teacher' && (
+              <Link to='/taskwrite'>
+                <S.Button>글 등록하기</S.Button>
+              </Link>
+            )}
             <select value={selectedSubject} onChange={handleSubjectChange}>
               <option value=''>과목</option>
               <option value='SW'>SW</option>
