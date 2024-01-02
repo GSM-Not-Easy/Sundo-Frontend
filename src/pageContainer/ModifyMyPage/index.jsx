@@ -32,11 +32,11 @@ const linkData = [
 ];
 
 const myObject = {
-  introduce: '안녕하세요!! 새로운 것을 배우는 프론트엔드 엔지니어입니다.',
+  introduce: '안녕하세요! 프론트엔드 개발자를 희망하는 서주미입니다!',
   major: 'Front-End Developer',
-  githubLink: 'https://github.com/TaerangLee',
-  portfolioLink: 'Your Portfolio Link Here',
-  blogLink: 'https://ltr2006.tistory.com/',
+  githubLink: 'https://github.com/SeoJumee',
+  portfolioLink: 'https://github.com/SeoJumee/TIL',
+  blogLink: 'https://www.instagram.com/juuuuuum_/',
 };
 
 const MyPage = () => {

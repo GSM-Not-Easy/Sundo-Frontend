@@ -45,7 +45,6 @@ const FoodModal = ({ onAddFood }) => {
       food: data.menu,
       text: data.intro,
     };
-    console.log(newFood);
     onAddFood(newFood);
     reset();
     setIsFoodModal(false);

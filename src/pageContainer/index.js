@@ -21,4 +21,7 @@ export { default as TaskDetailPage } from './TaskDetailPage';
 export { default as ProfilePage } from './ProfilePage';
 export { default as EmploymentWritePage } from './EmploymentWrite';
 export { default as TaskWritePage } from './TaskWritePage';
+export { default as ProfilePage } from './SignUpPage/ProfilePage';
+export { default as EmploymentWritePage } from './EmploymentWrite';
 export { default as MyDetailPage } from './MyDetailPage';
+export { default as ProFilePage } from './SignUpPage/ProfilePage';

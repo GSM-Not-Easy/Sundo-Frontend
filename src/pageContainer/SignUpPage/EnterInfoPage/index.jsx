@@ -38,7 +38,7 @@ const EnterInfoPage = ({ useForm }) => {
     //       grade: isHomeRoom ? Number(data.grade) : null,
     //       classNum: isHomeRoom ? Number(data.classNum) : null,
     //     });
-    setStep('회원가입완료');
+    isStudent ? setStep('학생자기소개') : setStep('회원가입완료');
   };
   const password1Value = watch('password1', '');
 

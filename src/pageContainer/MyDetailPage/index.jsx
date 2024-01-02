@@ -12,7 +12,6 @@ const MyDetailPage = () => {
   const navigation = useNavigate();
   const params = useParams();
   const selectedMy = SIGN_IN_DATA.find((my) => my.id === Number(params.id));
-  console.log(selectedMy);
 
   return (
     <>

@@ -40,7 +40,6 @@ const FoodListPage = () => {
             <S.FoodItem key={idx}>
               <S.NameWrapper>
                 <img src={slicePoint(food.number, Boy, Girl)} alt='여학생' />
-                {console.log(food.number)}
                 <span>
                   {food.grade}
                   {food.classNum}

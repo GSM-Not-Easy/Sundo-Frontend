@@ -15,13 +15,25 @@ const JobDetail = () => {
     if (storedData) {
       const jobData = JSON.parse(storedData);
       const job = jobData.find((job) => job.id === id);
-      setSelectedJob(job);
+      if (job) {
+        setSelectedJob(job);
+      } else {
+        console.log(`${id}에 해당하는 채용 정보를 찾을 수 없습니다.`);
+      }
+    } else {
+      const jobFromConstants = JOB_DATA.find((job) => job.id === id);
+      if (jobFromConstants) {
+        setSelectedJob(jobFromConstants);
+      } else {
+        console.log('로컬 스토리지와 상수에서 채용 정보를 찾을 수 없습니다.');
+      }
     }
   }, [id]);
 
   if (!selectedJob) {
     return <div>로딩 중...</div>;
   }
+
   return (
     <S.JobDetail>
       <C.Header />

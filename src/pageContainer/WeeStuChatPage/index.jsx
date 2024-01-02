@@ -42,12 +42,12 @@ const WeeStuChatPage = () => {
       </div>
       <S.ChatContainer>
         <S.ChatWrapper>
+          <C.ReceivedChat>반갑습니다</C.ReceivedChat>
           {messages.map(({ message, time }, idx) => (
             <C.SendedChat key={idx} time={time}>
               {message}
             </C.SendedChat>
           ))}
-          <C.ReceivedChat>반갑습니다</C.ReceivedChat>
         </S.ChatWrapper>
         <S.InputWrapper>
           <form onSubmit={handleSubmit(onSubmit)}>
