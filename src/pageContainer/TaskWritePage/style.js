@@ -65,7 +65,7 @@ export const DetailContentContainer = styled.div`
 `;
 
 export const DetailContentTextArea = styled.textarea`
-  width: 37.5rem;
+  width: 37rem;
   height: 7.8125rem;
   border-radius: 0.5rem;
   border: 0.0625rem solid #b2b2b2;
@@ -88,7 +88,7 @@ export const ButtonWrapper = styled.div`
   select {
     border-radius: 0.5rem;
     border: 0.0625rem solid #b2b2b2;
-    width: 15rem;
+    width: 17.4375rem;
     height: 3rem;
     border: 0.0625rem solid #b2b2b2;
     font-size: 1rem;
@@ -194,5 +194,36 @@ export const Link = styled.input`
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.25rem;
+  }
+`;
+
+export const FieldWrapper = styled.div`
+  display: flex;
+  gap: 33px;
+`;
+
+export const DateContainer = styled.div`
+  width: 100%;
+  display: flex;
+  gap: 11px;
+`;
+
+export const InputDate = styled.input`
+  border-radius: 0.5rem;
+  border: 0.0625rem solid #b2b2b2;
+  width: 17.4375rem;
+  height: 3rem;
+  border: 0.0625rem solid #b2b2b2;
+  font-size: 13px;
+  font-weight: 400;
+  color: black;
+  outline: none;
+  padding-left: 0.75rem;
+
+  &::placeholder {
+    color: #b2b2b2;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
   }
 `;
