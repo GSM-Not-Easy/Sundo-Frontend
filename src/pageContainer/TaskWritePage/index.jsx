@@ -21,9 +21,9 @@ const TaskWritePage = () => {
       grade: data.grade || '',
       title: data.title || '',
       content: data.content || '',
-      startDate: '2023.12.31',
-      endDate: '2024.01.08',
-      subject: 'SW',
+      startDate: data.date1,
+      endDate: data.date2,
+      subject: data.subject,
       file: '보고서 양식.hwp',
     };
 
@@ -81,7 +81,10 @@ const TaskWritePage = () => {
               <S.FieldContainer>
                 <S.Title>제출 기간</S.Title>
                 <S.ButtonWrapper>
-                  <S.InputDate placeholder='YYYY.MM.DD' />
+                  <S.InputDate
+                    placeholder='YYYY.MM.DD'
+                    {...register('date1')}
+                  />
                 </S.ButtonWrapper>
               </S.FieldContainer>
               <div style={{ position: 'relative', top: '65px' }}>
@@ -90,7 +93,10 @@ const TaskWritePage = () => {
               <S.FieldContainer>
                 <S.Title>ㅤ</S.Title>
                 <S.ButtonWrapper>
-                  <S.InputDate placeholder='YYYY.MM.DD' />
+                  <S.InputDate
+                    placeholder='YYYY.MM.DD'
+                    {...register('date2')}
+                  />
                 </S.ButtonWrapper>
               </S.FieldContainer>
             </S.DateContainer>

@@ -1,6 +1,6 @@
 import { Header } from '../../components';
 import * as S from './style';
-import { LinkIcon, ModifyIcon } from '../../assets/svg';
+import { LinkIcon } from '../../assets/svg';
 import Boy from '../../assets/png/Boy.png';
 import Girl from '../../assets/png/Girl.png';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -49,9 +49,9 @@ const MyDetailPage = () => {
                 </S.ProfileContent>
               </S.ProfileContainer>
               <S.ModifyIconWrapper>
-                <S.ModifyIconContainer onClick={() => navigation('/modifymy')}>
-                  <ModifyIcon />
-                </S.ModifyIconContainer>
+                <S.ModifyIconContainer
+                  onClick={() => navigation('/modifymy')}
+                ></S.ModifyIconContainer>
               </S.ModifyIconWrapper>
             </S.ProfileWrapper>
             <S.IntroduceContainer>
