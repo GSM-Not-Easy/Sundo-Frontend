@@ -12,7 +12,7 @@ const RoleSelectPage = () => {
       <S.SignUpContainer>
         <S.SignUpTitle>
           <A.SignUpLogo width={186} height={70} />
-          <S.SignUpText>GSM 선생님 통합 관리 서비스, 선도</S.SignUpText>
+          <S.SignUpText>GSM 선생님 도우미 서비스, 선도</S.SignUpText>
         </S.SignUpTitle>
         <S.RoleSelectWrapper>
           <S.RoleSelectItem

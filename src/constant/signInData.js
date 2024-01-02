@@ -62,9 +62,9 @@ export const SIGN_IN_DATA = [
     number: '8',
     major: 'Back-End Developer',
     info: '안녕하세요 전 백엔드 1티어 개발자 k-hope입니다.',
-    github: 'https://github.com/Khope',
-    blog: 'https://github.com/Hopee/TIL',
-    insta: 'https://www.instagram.com/KIMHM_/',
+    github: 'https://github.com/esperar',
+    blog: 'https://github.com/esperar/estudy',
+    insta: 'https://www.instagram.com/v.latile',
   },
   {
     id: 6,

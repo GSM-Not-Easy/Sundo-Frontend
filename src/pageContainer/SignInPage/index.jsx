@@ -54,7 +54,7 @@ const SignInPage = () => {
       <S.SignInWrapper>
         <S.SignInTitle>
           <A.SignUpLogo width={170} height={64} />
-          <S.SignInText>GSM 선생님 통합 관리 서비스</S.SignInText>
+          <S.SignInText>GSM 선생님 도우미 서비스</S.SignInText>
         </S.SignInTitle>
         <S.SignInList>
           <S.SignInItem>
