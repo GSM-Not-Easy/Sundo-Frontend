@@ -15,8 +15,8 @@ export { default as JobDetail } from './jobdetail';
 export { default as Field } from './field';
 export { default as Task } from './task';
 export { default as TaskDetail } from './taskdetail';
+export { default as ProfilePage } from './profile';
 
 export { default as EmploymentWrite } from './employment';
 
 export { default as MyDetailPage } from './mydetail';
-

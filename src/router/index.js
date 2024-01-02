@@ -8,6 +8,7 @@ export default function Router() {
         <Route path='/' element={<P.Main />} />
         <Route path='/signup' element={<P.SignUp />} />
         <Route path='/signin' element={<P.SignIn />} />
+        <Route path='/profilewrite' element={<P.ProfilePage />} />
         <Route path='/weeclass' element={<P.ChatStart />} />
         <Route path='/my' element={<P.My />} />
         <Route path='/stuinfo' element={<P.StuInfo />} />
