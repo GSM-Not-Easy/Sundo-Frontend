@@ -1,6 +1,9 @@
+import { useRecoilState } from 'recoil';
 import * as S from './style';
+import { Step } from '../../../atoms/atoms';
 
 const ProfilePage = () => {
+  const [step, setStep] = useRecoilState(Step);
   return (
     <S.ProfileWrapper>
       <S.ProfileContainer>
@@ -16,7 +19,9 @@ const ProfilePage = () => {
         </S.LinkContainer>
         <S.MenuTitleContainer>
           <S.MenuTitle>이전으로</S.MenuTitle>
-          <S.MenuTitle>확인</S.MenuTitle>
+          <S.MenuTitle onClick={() => setStep('회원가입완료')}>
+            확인
+          </S.MenuTitle>
         </S.MenuTitleContainer>
       </S.ProfileContainer>
     </S.ProfileWrapper>
