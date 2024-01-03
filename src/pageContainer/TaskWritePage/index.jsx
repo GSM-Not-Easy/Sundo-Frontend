@@ -5,10 +5,22 @@ import { TASK_DATA } from '../../constant/taskData';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { TildeIcon } from '../../assets/svg';
+import { useRef } from 'react';
 
 const TaskWritePage = () => {
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
+  const fileInputRef = useRef(null);
+
+  const handleUploadClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
+  const handleFileChange = () => {
+    toast.success('파일 업로드에 성공했습니다.');
+  };
   const onSubmit = (data) => {
     const storedData = localStorage.getItem('TASK_DATA');
     let newData = storedData ? JSON.parse(storedData) : [...TASK_DATA];
@@ -103,8 +115,15 @@ const TaskWritePage = () => {
             <S.UploadContainer>
               <S.TitleContainer>
                 <S.Title>이미지</S.Title>
-                <S.UploadButton>파일업로드</S.UploadButton>
-                <input type='file' style={{ display: 'none' }} />
+                <input
+                  type='file'
+                  style={{ display: 'none' }}
+                  ref={fileInputRef}
+                  onChange={handleFileChange}
+                />
+                <S.UploadButton onChange={handleUploadClick}>
+                  파일업로드
+                </S.UploadButton>
                 {/* <S.FileTitle>
                       신청서 파일.hwp <XIcon />
                     </S.FileTitle> */}
